@@ -25,9 +25,13 @@
     "@fortawesome/fontawesome": "^1.1.4",
     "@fortawesome/fontawesome-free-solid": "^5.0.7",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.4",
+    "axios": "^0.19.0",
+    "braces": "^3.0.2",
     "bulma-tooltip": "^2.0.2",
     "extend": "^3.0.2",
+    "fstream": "^1.0.12",
     "lodash": "^4.17.11",
-    "pump": "^3.0.0"
+    "pump": "^3.0.0",
+    "tar": "^4.4.10"
   }
 }
