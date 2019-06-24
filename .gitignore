@@ -3,4 +3,4 @@ node_modules
 js-dev
 .vscode/*
 debug.log
-build
+build/css
