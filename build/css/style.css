@@ -2796,6 +2796,18 @@ a.tag:hover {
   text-align: center;
   vertical-align: top; }
 
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative; }
+
+.map-responsive iframe {
+  min-height: 500px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%; }
+
 .breadcrumb {
   font-size: 1rem;
   white-space: nowrap; }
@@ -7080,7 +7092,9 @@ input:checked ~ .cmp-accordian__panel-content {
 
 .product_block {
   width: 300px;
-  height: auto; }
+  height: auto;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem; }
   .product_block.merchandise {
     margin-top: auto; }
     .product_block.merchandise img {
@@ -7094,10 +7108,11 @@ input:checked ~ .cmp-accordian__panel-content {
       position: absolute;
       bottom: 20px;
       left: 0.75rem;
-      right: 0.75rem; }
+      right: 0.75rem;
+      line-height: 1.1; }
     .product_block.single__product .picture,
     .product_block.single__product img {
-      max-height: 180px;
+      max-height: 160px;
       width: auto;
       margin: auto auto 50px; }
 

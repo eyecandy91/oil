@@ -26,16 +26,18 @@ if ($posts) : ?>
         <div class="image">
             <img src="<?php echo $image_url ?>" alt="<?php echo $title ?>" height="<?php echo $image_height ?>"
                 width="<?php echo $image_width ?>">
-            <div><?php the_title(); ?></div>
-            <div><?php
-                                if (!empty($price)) {
-                                    if (fmod($price, 1) !== 0.00) { ?>
-                                        <p>$ <?php echo $price; ?></p>
-                                    <? } else { ?>
-                                        <p>$ <?php echo $price; ?>.00</p>
-                                    <?php }
-                            }
-                            ?></div>
+                <div class="is-uppercase is-size-5">
+                <div><?php the_title(); ?></div>
+                <div><?php
+                    if (!empty($price)) {
+                        if (fmod($price, 1) !== 0.00) { ?>
+                        <p>$<?php echo $price; ?></p>
+                        <? } else { ?>
+                        <p>$<?php echo $price; ?>.00</p>
+                    <?php }
+                    } ?>
+                </div>
+            </div>
         </div>
     </a>
     <?php endforeach; ?>
@@ -44,7 +46,7 @@ if ($posts) : ?>
 wp_reset_postdata();
 endif;
 echo "</section>";
-echo "<section class='section content'>";
+echo "<section class='section content has-text-centered product_block__category-info'>";
 the_content();
 echo "</section>";
 get_footer();
