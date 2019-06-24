@@ -1,4 +1,19 @@
-/*! bulma.io v0.7.5 | MIT License | github.com/jgthms/bulma */
+/* Theme Name: Oil baron
+ * Theme URI: https://underscores.me/
+ * Author: Ez Media
+ * Author URI: https://automattic.com/
+ * Description: Oil baron Australia theme built on top of underscores bare theme
+ * Version: 1.0.0
+ * License: GNU General Public License
+ * Text Domain: Oil baron
+ * Tags: custom-background, custom-logo, custom-menu, featured-images,
+ * This theme, like WordPress, is licensed under the GPL.
+ * Oil baron is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+ * Underscores is distributed under the terms of the GNU GPL v2 or later.
+ * Normalizing styles have been helpe3d along thanks to the fine work of
+ * Nicolas Gallagher and Jonathan Neal https: */
+/* */
+/*! bulma.io v0.7.4 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
