@@ -24,7 +24,7 @@
                     'list_item_class' => 'nav-item',
                 ));
                 if (is_user_logged_in()) {?>
-                <a href="<?php echo esc_url( wp_logout_url(home_url())); ?>">Logout</a>
+                <a class="button is-link" href="<?php echo esc_url( wp_logout_url(home_url())); ?>">Logout</a>
                 <?php }?>
             </div>
         </div>

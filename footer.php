@@ -43,7 +43,7 @@ $img5_alt   		= $img5['alt'];
 
 <footer>
     <div class="has-text-centered">
-        Proud Distributors of:
+        <span class="is-size-5">Proud Distributors of:</span>
     </div class="has-text-centered">
     <div class="columns is-mobile is-multiline is-centered">
 	<?php if($link1){ ?>
