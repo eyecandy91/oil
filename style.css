@@ -1978,7 +1978,17 @@ input:checked ~ .cmp-accordian__panel-content {
     background-position: center;
 }
 
-.footer {
+footer {
     background-color: #fafafa;
     padding: 3rem 1.5rem 6rem;
+}
+
+footer div {
+    align-items: center;
+}
+
+footer img {
+    max-width: 160px;
+    width: auto;
+    margin: auto;
 }
