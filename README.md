@@ -14,7 +14,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 # Description 
 A simple theme for Oil baron. Which is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc. Utilises Bulma CSS, ACF, Gulp and npm
 
-== Changelog ==
+## Changelog
+
+= 0.12 =
+* Updated footer with ACF
 
 = 0.11 =
 * Updated warnings from vulnerable packages
@@ -22,14 +25,12 @@ A simple theme for Oil baron. Which is based on Underscores https://underscores.
 = 0.1 =
 * Progress aplha testing stage 0.1
 
-== Upgrade Notice ==
+## Upgrade Notice
 
 = 0.11 =
-
 * No changes as as far, still testing phase 0.1
 
 = 0.1 =
-
 * No changes as as far, testing phase 0.1
 
 == Resources ==
