@@ -1,12 +1,17 @@
-# === Theme Name ===
+# Theme Name 
 Contributors: (EzMedia)
+
 Requires at least: 4.0
+
 Tested up to: 5.3
+
 Stable tag: 1.0.0
+
 License: GPLv2 or later
+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-# == Description ==
+# Description 
 A simple theme for Oil baron. Which is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc. Utilises Bulma CSS, ACF, Gulp and npm
 
 == Changelog ==
