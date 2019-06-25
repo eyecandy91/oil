@@ -20,7 +20,7 @@
                 wp_nav_menu(array(
                     'theme_location'  => 'menu-1',
                     'menu_id'         => 'primary-menu',
-                    'menu_class'      => 'navbar-nav ',
+                    'menu_class'      => 'navbar-nav has-text-weight-bold',
                     'list_item_class' => 'nav-item',
                 ));
                 if (is_user_logged_in()) {?>

@@ -46,7 +46,7 @@ $image_large_w	= $image['sizes']['large-width'];
             	} ?>
             </div>
             <div class="field">
-                <span>Sizes</span>
+            <div class="field">Sizes</div>
                 <?php
 			echo "<div id='size' class='select'>
 			<select>
@@ -63,19 +63,16 @@ $image_large_w	= $image['sizes']['large-width'];
 			?>
             </div>
             <div class="field">
-                <span>Quantity</span>
+                <div class="field">Quantity</div>
                 <?php
 				echo "<div id='quantity'>
-				<div class='number'>
-					<span class='minus'>-</span>
-					<input id='value' class='input' type='text' value='1'/>
-					<span class='plus'>+</span>
+				<div class='number has-text-centered'>
+					<span class='minus input is-inline-block'>-</span>
+					<input id='value' class='input' type='text' value='1' readonly/>
+					<span class='plus input is-inline-block'>+</span>
 				</div>
 			</div>";
 			?>
-            </div>
-            <div class="is-hidden">
-                kfdflk
             </div>
             <div class="cmp-accordian">
                 <h2>Genral FAQs</h2>
