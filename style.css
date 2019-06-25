@@ -410,6 +410,14 @@ a.has-text-link:hover, a.has-text-link:focus {
     display: inline-block !important;
 }
 
+.is-marginless {
+    margin: 0 !important;
+}
+
+.is-paddingless {
+    padding: 0 !important;
+}
+
 .box {
     background-color: white;
     border-radius: 6px;
@@ -1042,6 +1050,14 @@ a.tag:hover {
 
 .title.is-3 {
     font-size: 1.8rem;
+}
+
+.title.is-6 {
+    font-size: 1rem;
+}
+
+.title.is-7 {
+    font-size: 0.75rem;
 }
 
 .heading {
@@ -1939,6 +1955,16 @@ textarea {
     width: 25%;
 }
 
+.columns.is-mobile > .column.is-6 {
+    flex: none;
+    width: 50%;
+}
+
+.columns.is-mobile > .column.is-7 {
+    flex: none;
+    width: 58.33333%;
+}
+
 @media screen and (max-width: 766px) {
     .column.is-full-mobile {
         flex: none;
@@ -1974,6 +2000,16 @@ textarea {
     .column.is-3 {
         flex: none;
         width: 25%;
+    }
+
+    .column.is-6 {
+        flex: none;
+        width: 50%;
+    }
+
+    .column.is-7 {
+        flex: none;
+        width: 58.33333%;
     }
 }
 
@@ -2083,10 +2119,28 @@ textarea {
     margin: auto auto 50px;
 }
 
+.single__product > .box {
+    width: 100%;
+}
+
 .po-no {
+    background-color: whitesmoke;
+    padding: .5rem 0;
+}
+
+.po-no > div {
     height: 140px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.po-no__name {
+    padding: .5rem 0;
+}
+
+.po-no__desc {
+    padding-bottom: .5rem;
+    color: #b5b5b5;
 }
 
 footer {
