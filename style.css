@@ -293,9 +293,10 @@ body {
 }
 
 a {
-    color: #3273dc;
+    color: #5f5d5d;
     cursor: pointer;
     text-decoration: none;
+    transition: color 0.4s ease 0s;
 }
 
 a strong {
@@ -303,7 +304,7 @@ a strong {
 }
 
 a:hover {
-    color: #363636;
+    color: #cccccc;
 }
 
 code {
@@ -1374,7 +1375,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
         display: block;
         width: 15rem;
         padding: 1rem;
-        padding-top: 62px;
+        padding-top: 22px;
         margin: 0;
         position: absolute;
         transform: translate(-50%, 0);
