@@ -5,7 +5,6 @@
 
 get_header();
 ?>
-<section class="section">
     <div class="has-text-centered product_block__category-info">
         <?php
 while (have_posts()):
@@ -23,32 +22,31 @@ if ($posts): ?>
     $pdf = get_field('product_pdf');
     $image = get_field('product_image');
     $image_full = $image['url'];
-    $image_alt  = $image['alt'];
+    $image_alt = $image['alt'];
     //echo "<pre>";
     //print_r($image);
     //echo "</pre>";
-    if ($pdf) { ?>
-        <a href="<?php echo $pdf; ?>" target="_blank">
-            <div class="column is-narrow product_block single__product image">
-                <div class="picture">
-                    <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
-                </div>
-                <span class="is-uppercase is-size-5"><?php the_title();?></span>
-            </div>
-        </a>
-        <? } else {?>
-        <div class="column is-narrow product_block single__product image">
-            <div class="picture">
-                <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
-            </div>
-            <span class="is-uppercase is-size-5"><?php the_title();?></span>
-        </div>
-        <?php }
+    if ($pdf) {?>
+	        <a class="has-text-link" href="<?php echo $pdf; ?>" target="_blank">
+	            <div class="column is-narrow product_block single__product image">
+	                <div class="picture">
+	                    <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
+	                </div>
+	                <span class="is-uppercase is-size-5"><?php the_title();?></span>
+	            </div>
+	        </a>
+	        <?} else {?>
+	        <div class="column is-narrow product_block single__product image">
+	            <div class="picture">
+	                <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
+	            </div>
+	            <span class="is-uppercase is-size-5 has-text-link"><?php the_title();?></span>
+	        </div>
+	        <?php }
 endforeach;?>
     </div>
     <?php wp_reset_postdata();
 endif;?>
-</section>
 <?php
 get_footer()
 ?>

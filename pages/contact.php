@@ -24,13 +24,12 @@ $maps                   = get_field('embeded_map');
     <?php //} ?>
 
     <div class="column is-full-mobile is-half-tablet is-half-desktop">
-        <div class="columns">
+        <div class="columns has-text-link">
             <div class="column is-full-mobile is-half-tablet is-half-desktop">
                 <?php
-                echo "<h2 class='title'>";
+                echo "<h2 class='title has-text-link is-3'>";
                 echo $place1;
                 echo "</h2>";
-                echo "<br>";
                 echo "Phone: ";
                 echo $head_phone;
                 echo "<br>";
@@ -42,10 +41,9 @@ $maps                   = get_field('embeded_map');
             </div>
             <div class="column is-full-mobile is-half-tablet is-half-desktop">
                 <?php
-                echo "<h2 class='title'>";
+                echo "<h2 class='title has-text-link is-3'>";
                 echo $place2;
                 echo "</h2>";
-                echo "<br>";
                 echo "Phone: ";
                 echo $dalby_phone;
                 echo "<br>";

@@ -21,7 +21,7 @@ if ($posts) : ?>
             $image_title    = $image['title'];
             // print_r($image);
             ?>
-    <a class="column is-narrow is-half-mobile is-one-third-tablet is-one-quarter-desktop product_block merchandise has-text-centered"
+    <a class="column is-narrow is-half-mobile is-one-third-tablet is-one-quarter-desktop product_block merchandise has-text-centered has-text-link"
         href="<?php the_permalink(); ?>">
         <div class="image">
             <img src="<?php echo $image_url ?>" alt="<?php echo $title ?>" height="<?php echo $image_height ?>"

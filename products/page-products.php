@@ -41,7 +41,7 @@ if (is_page( 'products' )) {
                     $height     = $image[2];
                     $width      = $image[2];
                     if ($products) { ?>
-                        <a href="<?php the_permalink(); ?>">
+                        <a class="has-text-link" href="<?php the_permalink(); ?>">
                             <div class="column is-narrow product_block single__product image">
                                 <div class="picture">
                                 <img src="<?php echo $url ?>" alt="">
@@ -51,7 +51,7 @@ if (is_page( 'products' )) {
                         </a> 
                     <?php } else {
                         $url_home   = home_url('/'); ?>
-                        <a href="<?php echo esc_url($url_home); ?>">
+                        <a class="has-text-link" href="<?php echo esc_url($url_home); ?>">
                             <div class="column is-narrow product_block single__product image">
                                 <div class="picture">
                                 <img src="<?php echo $url ?>" alt="">

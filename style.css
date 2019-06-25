@@ -8,6 +8,7 @@
  * Text Domain: Oil baron
  * Tags: custom-background, custom-logo, custom-menu, featured-images,
  * This theme, like WordPress, is licensed under the GPL.
+
  * Oil baron is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
  * Underscores is distributed under the terms of the GNU GPL v2 or later.
  * Normalizing styles have been helpe3d along thanks to the fine work of
@@ -131,7 +132,6 @@
     -webkit-appearance: none;
     align-items: center;
     border: 1px solid transparent;
-    border-radius: 4px;
     box-shadow: none;
     display: inline-flex;
     font-size: 1rem;
@@ -384,7 +384,7 @@ table th {
 }
 
 .is-size-5 {
-    font-size: 1.25rem !important;
+    font-size: 1.2rem !important;
 }
 
 .has-text-centered {
@@ -393,6 +393,14 @@ table th {
 
 .is-uppercase {
     text-transform: uppercase !important;
+}
+
+.has-text-link {
+    color: #092467 !important;
+}
+
+a.has-text-link:hover, a.has-text-link:focus {
+    color: #051338 !important;
 }
 
 .box {
@@ -405,11 +413,11 @@ table th {
 }
 
 a.box:hover, a.box:focus {
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px #3273dc;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px #092467;
 }
 
 a.box:active {
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #3273dc;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px #092467;
 }
 
 .button {
@@ -457,12 +465,12 @@ a.box:active {
 }
 
 .button:focus {
-    border-color: #3273dc;
+    border-color: #092467;
     color: #363636;
 }
 
 .button:focus:not(:active) {
-    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+    box-shadow: 0 0 0 0.125em rgba(9, 36, 103, 0.25);
 }
 
 .button:active {
@@ -471,13 +479,13 @@ a.box:active {
 }
 
 .button.is-link {
-    background-color: #3273dc;
+    background-color: #092467;
     border-color: transparent;
     color: #fff;
 }
 
 .button.is-link:hover {
-    background-color: #276cda;
+    background-color: #08205b;
     border-color: transparent;
     color: #fff;
 }
@@ -488,18 +496,18 @@ a.box:active {
 }
 
 .button.is-link:focus:not(:active) {
-    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+    box-shadow: 0 0 0 0.125em rgba(9, 36, 103, 0.25);
 }
 
 .button.is-link:active {
-    background-color: #2366d1;
+    background-color: #071c50;
     border-color: transparent;
     color: #fff;
 }
 
 .button.is-link[disabled],
     fieldset[disabled] .button.is-link {
-    background-color: #3273dc;
+    background-color: #092467;
     border-color: transparent;
     box-shadow: none;
 }
@@ -790,19 +798,19 @@ a.box:active {
 }
 
 .progress.is-link::-webkit-progress-value {
-    background-color: #3273dc;
+    background-color: #092467;
 }
 
 .progress.is-link::-moz-progress-bar {
-    background-color: #3273dc;
+    background-color: #092467;
 }
 
 .progress.is-link::-ms-fill {
-    background-color: #3273dc;
+    background-color: #092467;
 }
 
 .progress.is-link:indeterminate {
-    background-image: linear-gradient(to right, #3273dc 30%, #dbdbdb 30%);
+    background-image: linear-gradient(to right, #092467 30%, #dbdbdb 30%);
 }
 
 .progress:indeterminate {
@@ -850,8 +858,8 @@ a.box:active {
 
 .table td.is-link,
     .table th.is-link {
-    background-color: #3273dc;
-    border-color: #3273dc;
+    background-color: #092467;
+    border-color: #092467;
     color: #fff;
 }
 
@@ -956,7 +964,7 @@ a.box:active {
 }
 
 .tag:not(body).is-link {
-    background-color: #3273dc;
+    background-color: #092467;
     color: #fff;
 }
 
@@ -1002,7 +1010,7 @@ a.tag:hover {
 
 .title {
     color: #363636;
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 600;
     line-height: 1.125;
 }
@@ -1014,6 +1022,10 @@ a.tag:hover {
 
 .title + .highlight {
     margin-top: -0.75rem;
+}
+
+.title.is-3 {
+    font-size: 1.9rem;
 }
 
 .heading {
@@ -1041,7 +1053,7 @@ a.tag:hover {
     background-color: whitesmoke;
     border-radius: 290486px;
     display: inline-flex;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     height: 2em;
     justify-content: center;
     margin-right: 1.5rem;
@@ -1053,7 +1065,6 @@ a.tag:hover {
 
 .map-responsive {
     overflow: hidden;
-    padding-bottom: 56.25%;
     position: relative;
 }
 
@@ -1156,7 +1167,7 @@ a.tag:hover {
 }
 
 .message.is-link {
-    background-color: #f6f9fe;
+    background-color: #f6f8fe;
 }
 
 .modal {
@@ -1177,7 +1188,7 @@ a.tag:hover {
 }
 
 .navbar.is-link {
-    background-color: #3273dc;
+    background-color: #092467;
     color: #fff;
 }
 
@@ -1186,7 +1197,7 @@ a.tag:hover {
 }
 
 .navbar.is-link .navbar-brand > a.navbar-item:focus, .navbar.is-link .navbar-brand > a.navbar-item:hover {
-    background-color: #2366d1;
+    background-color: #071c50;
     color: #fff;
 }
 
@@ -1202,7 +1213,7 @@ a.tag:hover {
 
     .navbar.is-link .navbar-end > a.navbar-item:focus,
       .navbar.is-link .navbar-end > a.navbar-item:hover {
-        background-color: #2366d1;
+        background-color: #071c50;
         color: #fff;
     }
 }
@@ -1291,7 +1302,7 @@ a.navbar-item {
 
 a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
     background-color: #fafafa;
-    color: #3273dc;
+    color: #092467;
 }
 
 .navbar-item {
@@ -1577,34 +1588,28 @@ input:checked ~ .cmp-accordian__panel-content {
 
 .input, .textarea, .select select {
     background-color: white;
-    border-color: #dbdbdb;
-    border-radius: 4px;
+    border-color: #092467;
     color: #363636;
 }
 
 .input::-moz-placeholder, .textarea::-moz-placeholder, .select select::-moz-placeholder {
-    color: rgba(54, 54, 54, 0.3);
+    color: #092467;
 }
 
 .input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
-    color: rgba(54, 54, 54, 0.3);
+    color: #092467;
 }
 
 .input:-moz-placeholder, .textarea:-moz-placeholder, .select select:-moz-placeholder {
-    color: rgba(54, 54, 54, 0.3);
+    color: #092467;
 }
 
 .input:-ms-input-placeholder, .textarea:-ms-input-placeholder, .select select:-ms-input-placeholder {
-    color: rgba(54, 54, 54, 0.3);
-}
-
-.input:hover, .textarea:hover, .select select:hover {
-    border-color: #b5b5b5;
+    color: #092467;
 }
 
 .input:focus, .textarea:focus, .select select:focus, .input:active, .textarea:active, .select select:active {
-    border-color: #3273dc;
-    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+    border-color: #092467;
 }
 
 .input[disabled], .textarea[disabled], .select select[disabled],
@@ -1651,21 +1656,22 @@ input:checked ~ .cmp-accordian__panel-content {
 }
 
 .input, .textarea {
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
     max-width: 100%;
     width: 100%;
+    border: 1px solid #092467;
+}
+
+.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .input:-moz-placeholder, .textarea:-moz-placeholder, .input:-ms-input-placeholder, .textarea:-ms-input-placeholder, .input:-moz-placeholder, .textarea:-moz-placeholder {
+    color: #092467 !important;
 }
 
 .input[readonly], .textarea[readonly] {
     box-shadow: none;
 }
 
-.is-link.input, .is-link.textarea {
-    border-color: #3273dc;
-}
-
-.is-link.input:focus, .is-link.textarea:focus, .is-link.input:active, .is-link.textarea:active {
-    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+.textarea,
+textarea {
+    min-height: 200px;
 }
 
 .textarea {
@@ -1724,7 +1730,7 @@ input:checked ~ .cmp-accordian__panel-content {
 }
 
 .select:not(.is-multiple):not(.is-loading)::after {
-    border-color: #3273dc;
+    border-color: #092467;
     right: 1.125em;
     z-index: 4;
 }
@@ -1765,19 +1771,11 @@ input:checked ~ .cmp-accordian__panel-content {
 }
 
 .select.is-link:not(:hover)::after {
-    border-color: #3273dc;
+    border-color: #092467;
 }
 
 .select.is-link select {
-    border-color: #3273dc;
-}
-
-.select.is-link select:hover {
-    border-color: #2366d1;
-}
-
-.select.is-link select:focus, .select.is-link select:active {
-    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+    border-color: #092467;
 }
 
 .file {
@@ -1818,7 +1816,7 @@ input:checked ~ .cmp-accordian__panel-content {
 }
 
 .help.is-link {
-    color: #3273dc;
+    color: #092467;
 }
 
 .field:not(:last-child) {
@@ -1880,6 +1878,11 @@ input:checked ~ .cmp-accordian__panel-content {
     width: 100%;
 }
 
+.columns.is-mobile > .column.is-3 {
+    flex: none;
+    width: 25%;
+}
+
 @media screen and (max-width: 766px) {
     .column.is-full-mobile {
         flex: none;
@@ -1910,6 +1913,11 @@ input:checked ~ .cmp-accordian__panel-content {
     .column.is-one-third-tablet {
         flex: none;
         width: 33.3333%;
+    }
+
+    .column.is-3 {
+        flex: none;
+        width: 25%;
     }
 }
 
@@ -1978,8 +1986,7 @@ input:checked ~ .cmp-accordian__panel-content {
 
 .product_block__category-info {
     max-width: 767px;
-    margin: auto;
-    margin-bottom: 3rem;
+    margin: 3rem auto;
 }
 
 .product_block {
@@ -2006,10 +2013,11 @@ input:checked ~ .cmp-accordian__panel-content {
 
 .product_block.single__product span {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 0.75rem;
     right: 0.75rem;
-    line-height: 1.1;
+    line-height: 1.2;
+    min-height: 40px;
 }
 
 .product_block.single__product .picture,
