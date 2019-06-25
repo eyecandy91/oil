@@ -914,10 +914,10 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 	}
 
 // Custom login CSS
-function my_custom_login() {
-	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-style.css" />';
-}
-add_action('login_head', 'my_custom_login');
+// function my_custom_login() {
+// 	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-style.css" />';
+// }
+// add_action('login_head', 'my_custom_login');
 
 // Remove dashboard access to users 
 add_action('after_setup_theme', 'remove_admin_bar');

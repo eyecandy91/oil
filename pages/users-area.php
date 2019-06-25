@@ -44,11 +44,12 @@ wp_reset_query();
 get_footer();
 } else {
 get_header();
+    echo "<section class='section'>";
     // get_template_part('404');
     $args = array(
         'echo' => true,
         'redirect' => get_site_url().'/portal',
-        'form_id' => 'loginform',
+        'form_id' => 'portal_form',
         'label_username' => __( 'Username' ),
         'label_password' => __( 'Password' ),
         'label_remember' => __( 'Remember Me' ),
@@ -61,5 +62,13 @@ get_header();
         'value_username' => NULL,
         'value_remember' => false );
     wp_login_form($args);
+    echo "</section>";
 get_footer();
+?>
+<script>
+    jQuery(document).ready(function($) {
+        jQuery('#wp-submit').addClass('button is-fullwidth is-link');
+    });
+</script>
+<?php
 }

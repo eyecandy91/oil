@@ -74,6 +74,9 @@ $image_large_w	= $image['sizes']['large-width'];
 			</div>";
 			?>
             </div>
+            <div class="is-hidden">
+                kfdflk
+            </div>
             <div class="cmp-accordian">
                 <h2>Genral FAQs</h2>
                 <div class="cmp-accordian__panel">
