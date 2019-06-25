@@ -48,16 +48,16 @@ $image_large_w	= $image['sizes']['large-width'];
             <div class="field">
             <div class="field">Sizes</div>
                 <?php
-			echo "<div id='size' class='select'>
+			echo "<div id='size' class='select is-short'>
 			<select>
 			<option selected='true' disabled='disabled'>Select a size</option>
-			<option value='xs'>xs</option>
-			<option value='small'>small</option>
-			<option value='medium'>medium</option>
-			<option value='large'>large</option>
-			<option value='xl'>xl</option>
-			<option value='xxl'>xxl</option>
-			<option value='xxxl'>xxxl</option>
+			<option value='XS'>xs</option>
+			<option value='Small'>small</option>
+			<option value='Medium'>medium</option>
+			<option value='Large'>large</option>
+			<option value='XL'>xl</option>
+			<option value='XXL'>xxl</option>
+			<option value='XXXL'>xxxl</option>
 			</select>
 			</div>";
 			?>
@@ -75,9 +75,8 @@ $image_large_w	= $image['sizes']['large-width'];
 			?>
             </div>
             <div class="cmp-accordian">
-                <h2>Genral FAQs</h2>
                 <div class="cmp-accordian__panel">
-                    <input id="panel-one" type="radio" name="panels">
+                    <input id="panel-one" type="radio" name="panels" checked>
                     <label for="panel-one">Product info</label>
                     <div class="cmp-accordian__panel-content">
                         <p><?php echo $information; ?></p>
