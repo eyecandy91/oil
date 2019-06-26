@@ -49,7 +49,8 @@
     width: 0.625em;
 }
 
-.box:not(:last-child), .content:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .title:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .level:not(:last-child), .list:not(:last-child), .message:not(:last-child), .tabs:not(:last-child) {
+.box:not(:last-child), .content:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .title:not(:last-child),
+.subtitle:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .level:not(:last-child), .list:not(:last-child), .message:not(:last-child), .tabs:not(:last-child) {
     margin-bottom: 1.5rem;
 }
 
@@ -400,6 +401,14 @@ table th {
 
 a.has-text-link:hover, a.has-text-link:focus {
     color: #051338 !important;
+}
+
+.has-text-grey {
+    color: #7a7a7a !important;
+}
+
+.has-text-weight-light {
+    font-weight: 300 !important;
 }
 
 .has-text-weight-bold {
@@ -1011,24 +1020,30 @@ a.tag:hover {
     text-decoration: underline;
 }
 
-.title {
+.title,
+.subtitle {
     word-break: break-word;
 }
 
 .title em,
-  .title span {
+  .title span,
+  .subtitle em,
+  .subtitle span {
     font-weight: inherit;
 }
 
-.title sub {
+.title sub,
+  .subtitle sub {
     font-size: 0.75em;
 }
 
-.title sup {
+.title sup,
+  .subtitle sup {
     font-size: 0.75em;
 }
 
-.title .tag {
+.title .tag,
+  .subtitle .tag {
     vertical-align: middle;
 }
 
@@ -1048,6 +1063,10 @@ a.tag:hover {
     margin-top: -0.75rem;
 }
 
+.title:not(.is-spaced) + .subtitle {
+    margin-top: -1.25rem;
+}
+
 .title.is-3 {
     font-size: 1.8rem;
 }
@@ -1057,6 +1076,34 @@ a.tag:hover {
 }
 
 .title.is-7 {
+    font-size: 0.75rem;
+}
+
+.subtitle {
+    color: #2e2d2d;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.subtitle strong {
+    color: #363636;
+    font-weight: 600;
+}
+
+.subtitle:not(.is-spaced) + .title {
+    margin-top: -1.25rem;
+}
+
+.subtitle.is-3 {
+    font-size: 1.8rem;
+}
+
+.subtitle.is-6 {
+    font-size: 1rem;
+}
+
+.subtitle.is-7 {
     font-size: 0.75rem;
 }
 
@@ -2139,13 +2186,6 @@ textarea {
     margin: 3rem auto;
 }
 
-.product_block {
-    width: 300px;
-    height: auto;
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
-}
-
 .product_block.merchandise {
     margin-top: auto;
 }
@@ -2157,6 +2197,8 @@ textarea {
 }
 
 .product_block.single__product {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
     align-items: center;
     display: flex;
 }
@@ -2171,7 +2213,7 @@ textarea {
 }
 
 .product_block.single__product .picture,
-    .product_block.single__product img {
+  .product_block.single__product img {
     max-height: 160px;
     width: auto;
     margin: auto auto 50px;
@@ -2202,7 +2244,7 @@ textarea {
 }
 
 footer {
-    padding: 3rem 1.5rem;
+    padding: 1.5rem;
 }
 
 footer div {
@@ -2213,4 +2255,14 @@ footer img {
     max-width: 160px;
     width: auto;
     margin: auto;
+}
+
+@media screen and (max-width: 766px) {
+    footer .column {
+        padding: 0.75rem 0.75rem 0;
+    }
+
+    footer img {
+        max-width: 70px;
+    }
 }
