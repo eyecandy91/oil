@@ -41,7 +41,7 @@ gulp.task("purgecss", () => {
     .src("build/css/style.css")
     .pipe(
       purgecss({
-        content: ["**/*.html", "**/*.php"]
+        content: ["**/*.html", "**/*.php", "js/*.js"]
       })
     )
     .pipe(gulp.dest(""));
