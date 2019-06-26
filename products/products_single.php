@@ -27,8 +27,8 @@ if ($posts): ?>
     //print_r($image);
     //echo "</pre>";
     if ($pdf) {?>
-	        <a class="has-text-link" href="<?php echo $pdf; ?>" target="_blank">
-	            <div class="column is-narrow product_block single__product image">
+	        <a class="has-text-link column is-half-mobile is-one-third-tablet is-narrow" href="<?php echo $pdf; ?>" target="_blank">
+	            <div class="product_block single__product image">
 	                <div class="picture">
 	                    <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
 	                </div>
@@ -36,11 +36,13 @@ if ($posts): ?>
 	            </div>
 	        </a>
 	        <?} else {?>
-	        <div class="column is-narrow product_block single__product image">
-	            <div class="picture">
-	                <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
+	        <div class="column is-half-mobile is-one-third-tablet is-narrow">
+	            <div class="product_block single__product image">
+                    <div class="picture">
+                        <img src="<?php echo $image_full ?>" class="image" alt="<?php echo $image_alt ?>">
+                    </div>
+                    <span class="is-uppercase is-size-5 has-text-link"><?php the_title();?></span>
 	            </div>
-	            <span class="is-uppercase is-size-5 has-text-link"><?php the_title();?></span>
 	        </div>
 	        <?php }
 endforeach;?>

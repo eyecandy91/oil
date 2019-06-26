@@ -20,8 +20,8 @@ if (is_page( 'products' )) {
                 $width      = $image[2];
                 //print_r($image)
                 ?>
-                <a href="<?php the_permalink(); ?>">
-                    <div class="column is-narrow product_block">
+                <a class="column is-half-mobile is-one-third-tablet is-narrow" href="<?php the_permalink(); ?>">
+                    <div class="product_block">
                         <img src="<?php echo $url ?>" alt="">
                     </div>
                 </a>
@@ -41,20 +41,20 @@ if (is_page( 'products' )) {
                     $height     = $image[2];
                     $width      = $image[2];
                     if ($products) { ?>
-                        <a class="has-text-link" href="<?php the_permalink(); ?>">
-                            <div class="column is-narrow product_block single__product image">
+                        <a class="has-text-link column is-half-mobile is-one-third-tablet is-narrow" href="<?php the_permalink(); ?>">
+                            <div class="product_block single-item single__product image">
                                 <div class="picture">
-                                <img src="<?php echo $url ?>" alt="">
+                                    <img src="<?php echo $url ?>" alt="">
                                 </div>
                                 <span class="is-uppercase is-size-5"><?php the_title();?></span>
                             </div>
                         </a> 
                     <?php } else {
                         $url_home   = home_url('/'); ?>
-                        <a class="has-text-link" href="<?php echo esc_url($url_home); ?>">
-                            <div class="column is-narrow product_block single__product image">
+                        <a class="has-text-link column is-half-mobile is-one-third-tablet is-narrow" href="<?php echo esc_url($url_home); ?>">
+                            <div class="product_block single-item single__product image">
                                 <div class="picture">
-                                <img src="<?php echo $url ?>" alt="">
+                                    <img src="<?php echo $url ?>" alt="">
                                 </div>
                                 <span class="is-uppercase is-size-5"><?php the_title();?></span>
                             </div>  
