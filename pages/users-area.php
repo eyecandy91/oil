@@ -38,7 +38,7 @@ if (is_user_logged_in()) {
     <div class="columns is-mobile is-multiline is-centered has-text-centered">
         
         <div class="content">    
-            <h2 class="title has-text-weight-light is-marginless">Welcome back<span class="has-text-weight-bold">
+            <h2 class="title has-text-weight-light">Welcome back<span class="has-text-weight-bold">
             <?php
             if ($first && $last) {
                 echo $first. '&nbsp;' .$last; 
