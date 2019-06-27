@@ -18,7 +18,7 @@ if (is_user_logged_in()) {
     $loop = new WP_Query(array(
         'author' 			=> $current_user->ID,
         'post_type' 		=> 'certificates',
-        'posts_per_page' 	=> 1,
+        'posts_per_page' 	=> $post_amount,
 		'paged' 			=> $paged,
 		'tax_query' => array(
 			array(
