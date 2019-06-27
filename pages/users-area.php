@@ -6,95 +6,109 @@
  */
 
 if (is_user_logged_in()) {
-    $current_user   = wp_get_current_user();
-    $first          = $current_user->user_firstname;
-    $last           = $current_user->user_lastname; 
-    $user           = $current_user->user_login;
+    $current_user = wp_get_current_user();
+    $first = $current_user->user_firstname;
+    $last = $current_user->user_lastname;
+    $user = $current_user->user_login;
     get_header();
     global $current_user;
-    // $file_name = get_field('file_name');
-    // $file_pdf = get_field('file_pdf');
-    // $file_desc = get_field('file_description');
-    // $link = $file_pdf['url'];
-    // $icon = $file_pdf['icon'];
-    $loop = new WP_Query(array(
-        'author' => $current_user->ID,
-        'post_type' => 'certificates',
-        'posts_per_page' => -1,
-    )
-    );
-    $total = $loop->found_posts;
-    // echo "<pre>";
-    // print_r($loop);
-    // echo "</pre>";
     ?>
 
 <section class="section">
-    <?php if( current_user_can('administrator') ) {  ?>
+    <?php if (current_user_can('administrator')) {?>
 
-
-
-    <?php } else { ?>
+    <?php } else {?>
     <div class="columns is-mobile is-multiline is-centered has-text-centered">
-        
-        <div class="content">    
+        <div class="content">
             <h2 class="title has-text-weight-light">Welcome back<span class="has-text-weight-bold">
             <?php
             if ($first && $last) {
-                echo $first. '&nbsp;' .$last; 
+                    echo $first . '&nbsp;' . $last;
             } else if ($first) {
                 echo $first;
             } else {
                 echo $user;
-            } ?></span>, here are your files</h2>
-            <h4 class="subtitle is-6 has-text-grey-light">You currently have <?php echo $total ?> certificates in your portal</h4>
+            }?></span>, here are your folders</h2>
         </div>
-        <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url('/'); ?>">
-            <div>
-                <input value="" name="s" id="s" class="input" type="text"
-                    placeholder="Search <?php if ($first && $last) { echo $first. ' ' .$last.'\'s'; } else if ($first) {echo $first.'\'s'; } else { echo $user;} ?> files">
-                <input id="searchsubmit" value="Search" class="button is-link" type="submit">
-            </div>
-        </form>
     </div>
-    <div class="columns is-mobile is-multiline is-centered has-text-centered">
-        <?php while ($loop->have_posts()): $loop->the_post();
-        get_template_part('template-parts/content', 'search');
-    endwhile;
+    <?php
+    echo "<div class='columns po-results box is-mobile is-multiline is-centered has-text-centered'>";
+        $post_type = 'certificates';
+        // Get all the taxonomies for this post type
+        $taxonomies = get_object_taxonomies(array('post_type' => $post_type));
+        foreach ($taxonomies as $taxonomy):
+            // Gets every "category" (term) in this taxonomy to get the respective posts
+            $terms = get_terms($taxonomy);
+            foreach ($terms as $term):
+                $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+                $args = array(
+                    'post_type' => $post_type,
+                    'posts_per_page' => -1, //show all PO numbers here in the portal home page
+                    'author' => $current_user->ID,
+                    'paged' => $paged,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => $taxonomy, // base off the custom taxonomies that are the PO numbers
+                            'field' => 'slug',
+                            'terms' => $term->slug,
+                        ),
+                    ),
+                );
+                $posts = new WP_Query($args);
+                $terms = get_terms($taxonomy);
+                if ($posts->have_posts()):  ?>
+    <a href="<?php echo get_term_link($term) ?>" rel="single-po-number"
+        class="column is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+        <article id="post-<?php the_ID();?>" <?php post_class();?> class="">
+            <div class="box is-paddingless image">
+                <div class="po-no">
+                    <div class="folder"><i class="fas fa-folder-open has-text-link"></i></div>
+                </div>
+                <div class="po-no__name title is-6 is-marginless is-uppercase">
+                    <?php echo $term->name; ?><?php echo $file_name ?>
+                </div>
+            </div>
+        </article>
+    </a>
+    <?php endif;
+        endforeach;
+        endforeach;
+    }
     echo "</div>";
-    } 
-    
+
+    if (function_exists("pagination")) {
+        pagination($loop->max_num_pages);
+    }
 
     echo "</section>";
-    wp_reset_query();
     get_footer();
 } else {
-get_header();
+    get_header();
     echo "<section class='section'>";
     // get_template_part('404');
     $args = array(
         'echo' => true,
-        'redirect' => get_site_url().'/portal',
+        'redirect' => get_site_url() . '/portal',
         'form_id' => 'portal_form',
-        'label_username' => __( 'Username' ),
-        'label_password' => __( 'Password' ),
-        'label_remember' => __( 'Remember Me' ),
-        'label_log_in' => __( 'Log In' ),
+        'label_username' => __('Username'),
+        'label_password' => __('Password'),
+        'label_remember' => __('Remember Me'),
+        'label_log_in' => __('Log In'),
         'id_username' => 'user_login',
         'id_password' => 'user_pass',
         'id_remember' => 'rememberme',
         'id_submit' => 'wp-submit',
         'remember' => true,
-        'value_username' => NULL,
-        'value_remember' => false );
+        'value_username' => null,
+        'value_remember' => false);
     wp_login_form($args);
     echo "</section>";
-get_footer();
-?>
-        <script>
-        jQuery(document).ready(function($) {
-            jQuery('#wp-submit').addClass('button is-fullwidth is-link');
-        });
-        </script>
-        <?php
+    get_footer();
+    ?>
+    <script>
+    jQuery(document).ready(function($) {
+        jQuery('#wp-submit').addClass('button is-fullwidth is-link');
+    });
+    </script>
+    <?php
 }

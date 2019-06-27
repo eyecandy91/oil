@@ -140,6 +140,13 @@ function oil_baron_styles()
 }
 add_action('wp_enqueue_scripts', 'oil_baron_styles');
 
+function add_ajax_script() {
+
+    wp_localize_script( 'ajax-js', 'ajax_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
+}
+add_action( 'wp_enqueue_scripts', 'add_ajax_script' );
+
 /**
  * Implement the Custom Header feature.
  */
@@ -664,8 +671,8 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 			 */
 			public static function add_admin_menu() {
 				add_menu_page(
-					esc_html__( 'Theme Settings', 'text-domain' ),
-					esc_html__( 'Theme Settings', 'text-domain' ),
+					esc_html__( 'Theme Settings', 'ez-media' ),
+					esc_html__( 'Theme Settings', 'ez-media' ),
 					'manage_options',
 					'theme-settings',
 					array( 'WPEX_Theme_Options', 'create_admin_page' )
@@ -757,6 +764,12 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 					} else {
 						unset( $options['dalby_email'] ); // Remove from options if empty
 					}
+					// Input
+					if ( ! empty( $options['pagination'] ) ) {
+						$options['pagination'] = sanitize_text_field( $options['pagination'] );
+					} else {
+						unset( $options['pagination'] ); // Remove from options if empty
+					}
 	
 					// // Select
 					// if ( ! empty( $options['select_example'] ) ) {
@@ -776,117 +789,130 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 			 * @since 1.0.0
 			 */
 			public static function create_admin_page() { ?>
-	
-				<div class="wrap">
-	
-					<h1><?php esc_html_e( 'OIl baron settings', 'text-domain' ); ?></h1>
-	
-					<form method="post" action="options.php">
-	
-						<?php settings_fields( 'theme_options' ); ?>
-	
-						<table class="form-table wpex-custom-admin-login-table">
-	
-							<!-- <?php // Checkbox example ?>
+
+<div class="wrap">
+
+    <h1><?php esc_html_e( 'OIl baron settings', 'ez-media' ); ?></h1>
+
+    <form method="post" action="options.php">
+
+        <?php settings_fields( 'theme_options' ); ?>
+
+        <table class="form-table wpex-custom-admin-login-table">
+
+            <!-- <?php // Checkbox example ?>
 							<tr valign="top">
-								<th scope="row"><?php// esc_html_e( 'Checkbox Example', 'text-domain' ); ?></th>
+								<th scope="row"><?php// esc_html_e( 'Checkbox Example', 'ez-media' ); ?></th>
 								<td>
 									<?php// $value = self::get_theme_option( 'checkbox_example' ); ?>
-									<input type="checkbox" name="theme_options[checkbox_example]" <?php// checked( $value, 'on' ); ?>> <?php// esc_html_e( 'Checkbox example description.', 'text-domain' ); ?>
+									<input type="checkbox" name="theme_options[checkbox_example]" <?php// checked( $value, 'on' ); ?>> <?php// esc_html_e( 'Checkbox example description.', 'ez-media' ); ?>
 								</td>
 							</tr>
 	
 							<?php// // Text input example ?>
 							<tr valign="top">
-								<th scope="row"><?php// esc_html_e( 'Input Example', 'text-domain' ); ?></th>
+								<th scope="row"><?php// esc_html_e( 'Input Example', 'ez-media' ); ?></th>
 								<td>
 									<?php// $value = self::get_theme_option( 'input_example' ); ?>
 									<input type="text" name="theme_options[input_example]" value="<?php// echo esc_attr( $value ); ?>">
 								</td>
 							</tr> -->
-							
-							<?php // book online text ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Place of work', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'place1' ); ?>
-									<input type="text" name="theme_options[place1]" value="<?php echo esc_attr( $value ); ?>">
-								</td>
-							</tr>
-							<?php // book online text ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Head Office Phone Number', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'head_phone' ); ?>
-									<input type="text" name="theme_options[head_phone]" value="<?php echo esc_attr( $value ); ?>">
-								</td>
-							</tr>
 
-							<?php // book online link ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Head Office Address', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'head_address' ); ?>
-									<textarea type="text" name="theme_options[head_address]" cols="50" rows="8" /><?php echo esc_attr( $value ); ?></textarea>
-								</td>
-							</tr>
+            <?php // book online text ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Place of work', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'place1' ); ?>
+                    <input type="text" name="theme_options[place1]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
+            <?php // book online text ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Head Office Phone Number', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'head_phone' ); ?>
+                    <input type="text" name="theme_options[head_phone]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
 
-							<?php // footer copyright ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Head Office Email ', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'head_email' ); ?>
-									<input type="text" name="theme_options[head_email]" value="<?php echo esc_attr( $value ); ?>">
-								</td>
-							</tr>
+            <?php // book online link ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Head Office Address', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'head_address' ); ?>
+                    <textarea type="text" name="theme_options[head_address]" cols="50"
+                        rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+                </td>
+            </tr>
 
-							<?php // telephone number ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Place of work', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'place2' ); ?>
-									<input type="text" name="theme_options[place2]" value="<?php echo esc_attr( $value ); ?>">
-								</td>
-							</tr>
-							<?php // telephone number ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Dalby Branch Telephone', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'dalby_phone' ); ?>
-									<input type="text" name="theme_options[dalby_phone]" value="<?php echo esc_attr( $value ); ?>">
-								</td>
-							</tr>
+            <?php // footer copyright ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Head Office Email ', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'head_email' ); ?>
+                    <input type="text" name="theme_options[head_email]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
 
-							<?php // telephone number ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Dalby Branch Address', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'dalby_address' ); ?>
-									<textarea type="text" name="theme_options[dalby_address]" cols="50" rows="8" /><?php echo esc_attr( $value ); ?></textarea>
-									
-								</td>
-							</tr>
+            <?php // telephone number ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Place of work', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'place2' ); ?>
+                    <input type="text" name="theme_options[place2]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
+            <?php // telephone number ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Dalby Branch Telephone', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'dalby_phone' ); ?>
+                    <input type="text" name="theme_options[dalby_phone]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
 
-							<?php // telephone number ?>
-							<tr valign="top">
-								<th scope="row"><?php esc_html_e( 'Dalby Branch Email', 'text-domain' ); ?></th>
-								<td>
-									<?php $value = self::get_theme_option( 'dalby_email' ); ?>
-									<input type="text" name="theme_options[dalby_email]" value="<?php echo esc_attr( $value ); ?>">
-								</td>
-							</tr>
-	
-							<!-- <?php// // Select example ?>
+            <?php // telephone number ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Dalby Branch Address', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'dalby_address' ); ?>
+                    <textarea type="text" name="theme_options[dalby_address]" cols="50"
+                        rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+
+                </td>
+            </tr>
+
+            <?php // telephone number ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Dalby Branch Email', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'dalby_email' ); ?>
+                    <input type="text" name="theme_options[dalby_email]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><h2><?php esc_html_e( 'Pagination settings', 'ez-media' ); ?></h2></th>
+			</tr>
+            <?php // telephone number ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'How many certificates to be shown on one page', 'ez-media' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'pagination' ); ?>
+                    <input type="text" name="theme_options[pagination]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
+
+            <!-- <?php// // Select example ?>
 							<tr valign="top" class="wpex-custom-admin-screen-background-section">
-								<th scope="row"><?php// esc_html_e( 'Select Example', 'text-domain' ); ?></th>
+								<th scope="row"><?php// esc_html_e( 'Select Example', 'ez-media' ); ?></th>
 								<td>
 									<?php// $value = self::get_theme_option( 'select_example' ); ?>
 									<select name="theme_options[select_example]">
 										<?php//
 										//$options = array(
-										//	'1' => esc_html__( 'Option 1', 'text-domain' ),
-										//	'2' => esc_html__( 'Option 2', 'text-domain' ),
-										//	'3' => esc_html__( 'Option 3', 'text-domain' ),
+										//	'1' => esc_html__( 'Option 1', 'ez-media' ),
+										//	'2' => esc_html__( 'Option 2', 'ez-media' ),
+										//	'3' => esc_html__( 'Option 3', 'ez-media' ),
 										//);
 										//foreach ( $options as $id => $label ) { ?>
 											<option value="<?php// echo esc_attr( $id ); ?>" <?php// selected( $value, $id, true ); ?>>
@@ -896,15 +922,15 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 									</select>
 								</td>
 							</tr> -->
-	
-						</table>
-	
-						<?php submit_button(); ?>
-	
-					</form>
-	
-				</div><!-- .wrap -->
-			<?php }
+
+        </table>
+
+        <?php submit_button(); ?>
+
+    </form>
+
+</div><!-- .wrap -->
+<?php }
 	
 		}
 	}
@@ -939,9 +965,61 @@ function wpse23007_redirect(){
 }
 add_action('init','wpse23007_redirect');
 
+// Custom pagination
+function pagination($pages = '', $range = 4)
+{
+    $showitems = ($range * 2)+1;
+ 
+    global $paged;
+    if(empty($paged)) $paged = 1;
+ 
+    if($pages == '')
+    {
+        global $wp_query;
+        $pages = $wp_query->max_num_pages;
+        if(!$pages)
+        {
+            $pages = 1;
+        }
+    }
+ 
+    if(1 != $pages)
+    {
+        echo "<div class=\"pagination\"><span>Page ".$paged." of ".$pages."</span>";
+        if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; First</a>";
+        if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo; Previous</a>";
+ 
+        for ($i=1; $i <= $pages; $i++)
+        {
+            if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+            {
+                echo ($paged == $i)? "<span class=\"current\">".$i."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".$i."</a>";
+            }
+        }
+ 
+        if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">Next &rsaquo;</a>";
+        if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last &raquo;</a>";
+        echo "</div>\n";
+    }
+}
 
+// Fix the pagination 
+function custom_posts_per_page( $query ) {
+if ( $query->is_archive('project') ) 
+	{
+	set_query_var('posts_per_page', 1);
+	}
+}
+add_action( 'pre_get_posts', 'custom_posts_per_page' );
 
-
+function sanitize_pagination($content) {
+	// Remove h2 tag
+	$content = str_replace('role="navigation"', '', $content);
+    $content = preg_replace('#<h2.*?>(.*?)<\/h2>#si', '', $content);
+    return $content;
+}
+ 
+add_action('navigation_markup_template', 'sanitize_pagination');
 
 
 // function custom_contact_script_conditional_loading(){
