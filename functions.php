@@ -1007,11 +1007,12 @@ function pagination($pages = '', $range = 4)
 function custom_posts_per_page( $query ) {
 if ( $query->is_archive('project') ) 
 	{
-	set_query_var('posts_per_page', 1);
+	set_query_var('posts_per_page', -1);
 	}
 }
 add_action( 'pre_get_posts', 'custom_posts_per_page' );
 
+// Remove annoying crap from pagiation
 function sanitize_pagination($content) {
 	// Remove h2 tag
 	$content = str_replace('role="navigation"', '', $content);
