@@ -63,26 +63,17 @@ if (is_user_logged_in()) {
 			endwhile;
 			echo "</div>";
 			echo "<div class='has-text-centered'>";
-			// the_posts_pagination();
 			echo "</div>";
-			// the_posts_navigation();
-			// paginate_links( array(
-			// 	'base'      => str_replace( 99999999, '%#%', esc_url( get_pagenum_link( 99999999 ) ) ),
-			// 	'format'    => '?paged=%#%',
-			// 	'prev_text' => '',
-			// 	'next_text' => '',
-			// 	'current'   => max( 1, $works->get( 'paged' ) ),
-			// 	'total'     => $works->max_num_pages
-			// ) );
 			if (function_exists("pagination")) {
 				pagination($loop->max_num_pages);
 			} 
 		endif;
-	
-    wp_reset_query();
+		
+	wp_reset_query();
+
     echo "</section>";
     get_footer();
-	} 
+} 
 } else {
 get_header();
     echo "<section class='section'>";
