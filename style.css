@@ -621,15 +621,9 @@ a.box:active {
     width: auto;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1044px) {
     .container {
-        max-width: 960px;
-    }
-}
-
-@media screen and (min-width: 1216px) {
-    .container {
-        max-width: 1152px;
+        max-width: 980px;
     }
 }
 
@@ -1335,7 +1329,7 @@ a.tag:hover {
     color: #fff;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1044px) {
       
     .navbar.is-link .navbar-end > .navbar-item {
         color: #fff;
@@ -1380,7 +1374,7 @@ a.tag:hover {
     margin-left: auto;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1044px) {
     .navbar-burger {
         height: 3.25rem;
     }
@@ -1435,7 +1429,6 @@ a.tag:hover {
     color: #2e2d2d;
     display: block;
     line-height: 1.5;
-    padding: 0.5rem 0.75rem;
     position: relative;
 }
 
@@ -1464,7 +1457,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     width: auto;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1043px) {
     .navbar-brand {
         position: relative;
     }
@@ -1504,7 +1497,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1044px) {
     .navbar,
   .navbar-menu,
   .navbar-end {
@@ -2217,7 +2210,7 @@ textarea {
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1044px) {
     .column.is-half-desktop {
         flex: none;
         width: 50%;
