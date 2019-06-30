@@ -21,7 +21,7 @@ if (is_user_logged_in()) {
     <div class="columns is-mobile is-multiline is-centered has-text-centered">
         <div class="content">
             <h2 class="title has-text-weight-light">Welcome back<span class="has-text-weight-bold">
-            <?php
+                    <?php
             if ($first && $last) {
                     echo $first . '&nbsp;' . $last;
             } else if ($first) {
@@ -84,7 +84,23 @@ if (is_user_logged_in()) {
     get_footer();
 } else {
     get_header();
-    echo "<section class='section'>";
+    $error_head         = myprefix_get_theme_option('login_error');
+    $error_message      = myprefix_get_theme_option('login_error_text');
+    echo "<section class='section portal_form'>";
+    ?>
+    <?php
+        if ($_GET['login'] == 'failed') { ?>
+    <article class="message is-danger has-text-centered">
+        <div class="message-header">
+            <p><?php echo $error_head ?></p>
+        </div>
+        <div class="message-body">
+            <?php echo $error_message ?>
+        </div>
+    </article>
+    <?php }
+        ?>
+    <?php
     // get_template_part('404');
     $args = array(
         'echo' => true,
@@ -108,6 +124,13 @@ if (is_user_logged_in()) {
     <script>
     jQuery(document).ready(function($) {
         jQuery('#wp-submit').addClass('button is-fullwidth is-link');
+        jQuery("#wp-submit").click(function() {
+            var user = $("input#user_login").val();
+            if (user == "") {
+                $("input#user_login").focus();
+                return false;
+            }
+        });
     });
     </script>
     <?php
