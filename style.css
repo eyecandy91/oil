@@ -569,6 +569,40 @@ a.box:active {
     box-shadow: none;
 }
 
+.button.is-danger {
+    background-color: #ff3860;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-danger:hover {
+    background-color: #ff2b56;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-danger:focus {
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-danger:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em rgba(255, 56, 96, 0.25);
+}
+
+.button.is-danger:active, .button.is-danger.is-active {
+    background-color: #ff1f4b;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-danger[disabled],
+    fieldset[disabled] .button.is-danger {
+    background-color: #ff3860;
+    border-color: transparent;
+    box-shadow: none;
+}
+
 .button[disabled],
   fieldset[disabled] .button {
     background-color: white;
@@ -869,6 +903,22 @@ a.box:active {
     background-image: linear-gradient(to right, #092467 30%, #dbdbdb 30%);
 }
 
+.progress.is-danger::-webkit-progress-value {
+    background-color: #ff3860;
+}
+
+.progress.is-danger::-moz-progress-bar {
+    background-color: #ff3860;
+}
+
+.progress.is-danger::-ms-fill {
+    background-color: #ff3860;
+}
+
+.progress.is-danger:indeterminate {
+    background-image: linear-gradient(to right, #ff3860 30%, #dbdbdb 30%);
+}
+
 .progress:indeterminate {
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -916,6 +966,13 @@ a.box:active {
     .table th.is-link {
     background-color: #092467;
     border-color: #092467;
+    color: #fff;
+}
+
+.table td.is-danger,
+    .table th.is-danger {
+    background-color: #ff3860;
+    border-color: #ff3860;
     color: #fff;
 }
 
@@ -1025,6 +1082,11 @@ a.box:active {
 
 .tag:not(body).is-link {
     background-color: #092467;
+    color: #fff;
+}
+
+.tag:not(body).is-danger {
+    background-color: #ff3860;
     color: #fff;
 }
 
@@ -1196,12 +1258,6 @@ a.tag:hover {
     width: 100%;
 }
 
-.dropdown {
-    display: inline-flex;
-    position: relative;
-    vertical-align: top;
-}
-
 .level {
     align-items: center;
     justify-content: space-between;
@@ -1290,6 +1346,73 @@ a.tag:hover {
     background-color: #f6f8fe;
 }
 
+.message.is-link .message-header {
+    background-color: #092467;
+    color: #fff;
+}
+
+.message.is-link .message-body {
+    border-color: #092467;
+    color: #08205a;
+}
+
+.message.is-danger {
+    background-color: #fff5f7;
+}
+
+.message.is-danger .message-header {
+    background-color: #ff3860;
+    color: #fff;
+}
+
+.message.is-danger .message-body {
+    border-color: #ff3860;
+    color: #cd0930;
+}
+
+.message-header {
+    align-items: center;
+    background-color: #2e2d2d;
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    display: flex;
+    font-weight: 700;
+    justify-content: space-between;
+    line-height: 1.25;
+    padding: 0.75em 1em;
+    position: relative;
+}
+
+.message-header .delete {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-left: 0.75em;
+}
+
+.message-header + .message-body {
+    border-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.message-body {
+    border-color: #dbdbdb;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 0 0 0 4px;
+    color: #2e2d2d;
+    padding: 1.25em 1.5em;
+}
+
+.message-body code,
+  .message-body pre {
+    background-color: white;
+}
+
+.message-body pre code {
+    background-color: transparent;
+}
+
 .modal {
     align-items: center;
     display: none;
@@ -1339,6 +1462,38 @@ a.tag:hover {
       .navbar.is-link .navbar-end > a.navbar-item:hover,
       .navbar.is-link .navbar-end > a.navbar-item.is-active {
         background-color: #071c50;
+        color: #fff;
+    }
+}
+
+.navbar.is-danger {
+    background-color: #ff3860;
+    color: #fff;
+}
+
+.navbar.is-danger .navbar-brand > .navbar-item {
+    color: #fff;
+}
+
+.navbar.is-danger .navbar-brand > a.navbar-item:focus, .navbar.is-danger .navbar-brand > a.navbar-item:hover, .navbar.is-danger .navbar-brand > a.navbar-item.is-active {
+    background-color: #ff1f4b;
+    color: #fff;
+}
+
+.navbar.is-danger .navbar-burger {
+    color: #fff;
+}
+
+@media screen and (min-width: 1044px) {
+      
+    .navbar.is-danger .navbar-end > .navbar-item {
+        color: #fff;
+    }
+
+    .navbar.is-danger .navbar-end > a.navbar-item:focus,
+      .navbar.is-danger .navbar-end > a.navbar-item:hover,
+      .navbar.is-danger .navbar-end > a.navbar-item.is-active {
+        background-color: #ff1f4b;
         color: #fff;
     }
 }
@@ -2030,6 +2185,14 @@ textarea {
     border-color: #092467;
 }
 
+.select.is-danger:not(:hover)::after {
+    border-color: #ff3860;
+}
+
+.select.is-danger select {
+    border-color: #ff3860;
+}
+
 .select.is-fullwidth {
     width: 100%;
 }
@@ -2079,6 +2242,10 @@ textarea {
     color: #092467;
 }
 
+.help.is-danger {
+    color: #ff3860;
+}
+
 .field:not(:last-child) {
     margin-bottom: 0.75rem;
 }
@@ -2121,12 +2288,12 @@ textarea {
     max-width: 350px;
 }
 
-#portal_form {
-    max-width: 300px;
+.portal_form {
+    max-width: 400px;
     margin: auto;
 }
 
-#portal_form p {
+.portal_form form p {
     margin-bottom: 1rem;
 }
 
@@ -2366,5 +2533,38 @@ footer img {
 
     footer img {
         max-width: 70px;
+    }
+}
+
+.error {
+    display: table;
+    width: 100%;
+    min-height: 250px;
+    text-align: center;
+}
+
+.error .spacer {
+    margin: 1rem 0 !important;
+}
+
+.error__wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.error__wrapper h1 {
+    font-size: 50px;
+    display: inline-block;
+    padding-right: 12px;
+    animation: type .5s alternate infinite;
+}
+
+@keyframes type {
+    from {
+        box-shadow: inset -3px 0px 0px #888;
+    }
+
+    to {
+        box-shadow: inset -3px 0px 0px transparent;
     }
 }
