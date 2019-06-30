@@ -671,8 +671,8 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 			 */
 			public static function add_admin_menu() {
 				add_menu_page(
-					esc_html__( 'Theme Settings', 'ez-media' ),
-					esc_html__( 'Theme Settings', 'ez-media' ),
+					esc_html__( 'Theme Settings', 'oil-baron' ),
+					esc_html__( 'Theme Settings', 'oil-baron' ),
 					'manage_options',
 					'theme-settings',
 					array( 'WPEX_Theme_Options', 'create_admin_page' )
@@ -770,6 +770,12 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 					} else {
 						unset( $options['pagination'] ); // Remove from options if empty
 					}
+					// Input
+					if ( ! empty( $options['login_error'] ) ) {
+						$options['login_error'] = sanitize_text_field( $options['login_error'] );
+					} else {
+						unset( $options['login_error'] ); // Remove from options if empty
+					}
 	
 					// // Select
 					// if ( ! empty( $options['select_example'] ) ) {
@@ -792,7 +798,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
 <div class="wrap">
 
-    <h1><?php esc_html_e( 'OIl baron settings', 'ez-media' ); ?></h1>
+    <h1><?php esc_html_e( 'OIl baron settings', 'oil-baron' ); ?></h1>
 
     <form method="post" action="options.php">
 
@@ -802,16 +808,16 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <!-- <?php // Checkbox example ?>
 							<tr valign="top">
-								<th scope="row"><?php// esc_html_e( 'Checkbox Example', 'ez-media' ); ?></th>
+								<th scope="row"><?php// esc_html_e( 'Checkbox Example', 'oil-baron' ); ?></th>
 								<td>
 									<?php// $value = self::get_theme_option( 'checkbox_example' ); ?>
-									<input type="checkbox" name="theme_options[checkbox_example]" <?php// checked( $value, 'on' ); ?>> <?php// esc_html_e( 'Checkbox example description.', 'ez-media' ); ?>
+									<input type="checkbox" name="theme_options[checkbox_example]" <?php// checked( $value, 'on' ); ?>> <?php// esc_html_e( 'Checkbox example description.', 'oil-baron' ); ?>
 								</td>
 							</tr>
 	
 							<?php// // Text input example ?>
 							<tr valign="top">
-								<th scope="row"><?php// esc_html_e( 'Input Example', 'ez-media' ); ?></th>
+								<th scope="row"><?php// esc_html_e( 'Input Example', 'oil-baron' ); ?></th>
 								<td>
 									<?php// $value = self::get_theme_option( 'input_example' ); ?>
 									<input type="text" name="theme_options[input_example]" value="<?php// echo esc_attr( $value ); ?>">
@@ -820,7 +826,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <?php // book online text ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Place of work', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Place of work', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'place1' ); ?>
                     <input type="text" name="theme_options[place1]" value="<?php echo esc_attr( $value ); ?>">
@@ -828,7 +834,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
             </tr>
             <?php // book online text ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Head Office Phone Number', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Head Office Phone Number', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'head_phone' ); ?>
                     <input type="text" name="theme_options[head_phone]" value="<?php echo esc_attr( $value ); ?>">
@@ -837,7 +843,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <?php // book online link ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Head Office Address', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Head Office Address', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'head_address' ); ?>
                     <textarea type="text" name="theme_options[head_address]" cols="50"
@@ -847,7 +853,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <?php // footer copyright ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Head Office Email ', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Head Office Email ', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'head_email' ); ?>
                     <input type="text" name="theme_options[head_email]" value="<?php echo esc_attr( $value ); ?>">
@@ -856,7 +862,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <?php // telephone number ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Place of work', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Place of work', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'place2' ); ?>
                     <input type="text" name="theme_options[place2]" value="<?php echo esc_attr( $value ); ?>">
@@ -864,7 +870,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
             </tr>
             <?php // telephone number ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Dalby Branch Telephone', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Dalby Branch Telephone', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'dalby_phone' ); ?>
                     <input type="text" name="theme_options[dalby_phone]" value="<?php echo esc_attr( $value ); ?>">
@@ -873,7 +879,7 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <?php // telephone number ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Dalby Branch Address', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Dalby Branch Address', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'dalby_address' ); ?>
                     <textarea type="text" name="theme_options[dalby_address]" cols="50"
@@ -884,35 +890,57 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 
             <?php // telephone number ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'Dalby Branch Email', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Dalby Branch Email', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'dalby_email' ); ?>
                     <input type="text" name="theme_options[dalby_email]" value="<?php echo esc_attr( $value ); ?>">
                 </td>
 			</tr>
+
 			<tr valign="top">
-				<th scope="row"><h2><?php esc_html_e( 'Pagination settings', 'ez-media' ); ?></h2></th>
+				<th scope="row"><h2><?php esc_html_e( 'Pagination settings', 'oil-baron' ); ?></h2></th>
 			</tr>
             <?php // telephone number ?>
             <tr valign="top">
-                <th scope="row"><?php esc_html_e( 'How many certificates to be shown on one page', 'ez-media' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'How many certificates to be shown on one page', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'pagination' ); ?>
                     <input type="text" name="theme_options[pagination]" value="<?php echo esc_attr( $value ); ?>">
                 </td>
             </tr>
 
+			<tr valign="top">
+				<th scope="row"><h2><?php esc_html_e( 'Login settings', 'oil-baron' ); ?></h2></th>
+			</tr>
+            <?php // telephone number ?>
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'If user name or/and password doesnt match error header', 'oil-baron' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'login_error' ); ?>
+                    <input type="text" name="theme_options[login_error]" value="<?php echo esc_attr( $value ); ?>">
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row"><?php esc_html_e( 'If user name or/and password doesnt match error message', 'oil-baron' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'login_error_text' ); ?>
+					<textarea type="text" name="theme_options[login_error_text]" cols="50"
+                        rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+                </td>
+            </tr>
+
             <!-- <?php// // Select example ?>
 							<tr valign="top" class="wpex-custom-admin-screen-background-section">
-								<th scope="row"><?php// esc_html_e( 'Select Example', 'ez-media' ); ?></th>
+								<th scope="row"><?php// esc_html_e( 'Select Example', 'oil-baron' ); ?></th>
 								<td>
 									<?php// $value = self::get_theme_option( 'select_example' ); ?>
 									<select name="theme_options[select_example]">
 										<?php//
 										//$options = array(
-										//	'1' => esc_html__( 'Option 1', 'ez-media' ),
-										//	'2' => esc_html__( 'Option 2', 'ez-media' ),
-										//	'3' => esc_html__( 'Option 3', 'ez-media' ),
+										//	'1' => esc_html__( 'Option 1', 'oil-baron' ),
+										//	'2' => esc_html__( 'Option 2', 'oil-baron' ),
+										//	'3' => esc_html__( 'Option 3', 'oil-baron' ),
 										//);
 										//foreach ( $options as $id => $label ) { ?>
 											<option value="<?php// echo esc_attr( $id ); ?>" <?php// selected( $value, $id, true ); ?>>
@@ -1019,9 +1047,33 @@ function sanitize_pagination($content) {
     $content = preg_replace('#<h2.*?>(.*?)<\/h2>#si', '', $content);
     return $content;
 }
- 
 add_action('navigation_markup_template', 'sanitize_pagination');
 
+add_action( 'wp_login_failed', 'custom_login_failed' );
+function custom_login_failed( $username )
+{
+    $referrer = wp_get_referer();
+
+    if ( $referrer && ! strstr($referrer, 'wp-login') && ! strstr($referrer,'wp-admin') )
+    {
+        wp_redirect( add_query_arg('login', 'failed', $referrer) );
+        exit;
+    }
+}
+
+add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
+function custom_authenticate_username_password( $user, $username, $password )
+{
+    if ( is_a($user, 'WP_User') ) { return $user; }
+
+    if ( empty($username) || empty($password) )
+    {
+        $error = new WP_Error();
+        $user  = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
+
+        return $error;
+    }
+}
 
 // function custom_contact_script_conditional_loading(){
 // 	//  Edit page IDs here
@@ -1034,9 +1086,6 @@ add_action('navigation_markup_template', 'sanitize_pagination');
 //  }
  
 //  add_action( 'wp_enqueue_scripts', 'custom_contact_script_conditional_loading' );
-
-
-
 
 // function wpb_search_filter($query)
 // {
