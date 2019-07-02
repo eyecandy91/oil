@@ -25,7 +25,7 @@
                 wp_nav_menu(array(
                     'theme_location'  => 'menu-1',
                     'menu_id'         => 'primary-menu',
-                    'menu_class'      => 'navbar-nav has-text-weight-bold',
+                    'menu_class'      => 'navbar-nav has-text-weight-bold is-size-6',
                     'list_item_class' => 'nav-item',
                 ));
                 if ( !wp_is_mobile() ) {
