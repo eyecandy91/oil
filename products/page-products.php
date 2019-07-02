@@ -6,10 +6,7 @@
 get_header();
 ?>
 <section class="section">
-<?php
-if (in_category( 'No description' ) || ( 'No-description' )) { ?>
-this is the correct catggory
-<?php } 
+<?php 
 if (in_category( 'No description' )) {
     $posts = get_field('product_cat');
     if ($posts) : ?>
@@ -24,7 +21,7 @@ if (in_category( 'No description' )) {
                 //print_r($image)
                 ?>
                 <a class="column is-half-mobile is-one-third-tablet is-narrow" href="<?php the_permalink(); ?>">
-                    <div class="product_block">ff
+                    <div class="product_block">
                         <img src="<?php echo $url ?>" alt="">
                     </div>
                 </a>
