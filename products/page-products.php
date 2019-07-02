@@ -7,7 +7,7 @@ get_header();
 ?>
 <section class="section">
 <?php
-if (is_page( 'products' )) {
+if (in_category( 'No description' ) || ( 'No-description' )) {
     $posts = get_field('product_cat');
     if ($posts) : ?>
         <div class="columns is-mobile is-multiline is-centered">
