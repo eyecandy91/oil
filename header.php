@@ -17,10 +17,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head();?>
-	<link rel="preload" href="https://fonts.googleapis.com/css?family=Nunito:400,700" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700"></noscript>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="preload" href="<?php echo get_stylesheet_uri() ?>" as="style"
@@ -31,6 +27,10 @@
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/aos.css"></noscript>
+    <link rel="preload" href="<?php echo get_template_directory_uri() ?>/css/font.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/font.css"></noscript>
     <script>
     /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
     /* This file is meant as a standalone workflow for
