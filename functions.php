@@ -281,6 +281,7 @@ function custom_post_certificates()
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
 		'menu_icon'           => 'dashicons-awards',
+		'publicly_queryable' => false, // Set to false hides Single Pages
 	);
 
 	// Registering your Custom Post Type
@@ -383,6 +384,7 @@ function custom_post_products()
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
 		'menu_icon'           => 'dashicons-pressthis',
+		'publicly_queryable' => false, // Set to false hides Single Pages
 	);
 
 	// Registering your Custom Post Type
@@ -484,7 +486,7 @@ function custom_post_Merchandise()
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
-		'menu_icon'           => 'dashicons-cart',
+		'menu_icon'           => 'dashicons-cart',	
 	);
 
 	// Registering your Custom Post Type
