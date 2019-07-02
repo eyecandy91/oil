@@ -282,7 +282,7 @@ td:not([align]),
 
 html {
     background-color: white;
-    font-size: 16px;
+    font-size: 14px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-width: 300px;
@@ -300,14 +300,6 @@ header,
 hgroup,
 section {
     display: block;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-    font-family: "Nunito", serif;
 }
 
 code,
@@ -417,6 +409,10 @@ table th {
 
 .is-size-5 {
     font-size: 1.1rem !important;
+}
+
+.is-size-6 {
+    font-size: 1rem !important;
 }
 
 .has-text-centered {
@@ -681,7 +677,7 @@ a.box:active {
 .content h4,
 .content h5,
 .content h6 {
-    color: #363636;
+    color: #5f5d5d;
     font-weight: 600;
     line-height: 1.125;
 }
@@ -1703,7 +1699,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
     .navbar-end li:hover ul {
         display: block;
-        width: 15rem;
+        width: 20rem;
         padding: 1rem;
         padding-top: 22px;
         margin: 0;
