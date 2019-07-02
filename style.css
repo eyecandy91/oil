@@ -2456,6 +2456,7 @@ textarea {
     padding-bottom: 1.2rem;
     align-items: center;
     display: flex;
+    min-height: 250px;
 }
 
 .product_block.single__product span {
@@ -2472,6 +2473,12 @@ textarea {
     max-height: 160px;
     width: auto;
     margin: auto auto 50px;
+}
+
+@media screen and (max-width: 766px) {
+    .product_block.single__product .picture {
+        padding: .8rem;
+    }
 }
 
 .single__product > .box {
