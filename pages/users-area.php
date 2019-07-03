@@ -102,6 +102,8 @@ if (is_user_logged_in()) {
     get_header();
     $error_head         = myprefix_get_theme_option('login_error');
     $error_message      = myprefix_get_theme_option('login_error_text');
+    $head_email         = myprefix_get_theme_option('head_email');
+    $dalby_email        = myprefix_get_theme_option('dalby_email');
     echo "<section class='section portal_form'>";
     ?>
     <?php
@@ -115,8 +117,6 @@ if (is_user_logged_in()) {
         </div>
     </article>
     <?php }
-        ?>
-    <?php
     // get_template_part('404');
     $args = array(
         'echo' => true,
@@ -134,6 +134,10 @@ if (is_user_logged_in()) {
         'value_username' => null,
         'value_remember' => false);
     wp_login_form($args);
+    ?><a class="has-text-centered is-block" href="mailto:<?php echo $head_email; ?>" target="_blank"><?php
+    echo "Having issues?<br>Email ".$head_email;
+    echo "</a>";
+    
     echo "</section>";
     get_footer();
     ?>
