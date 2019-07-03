@@ -995,6 +995,20 @@ function wpse23007_redirect(){
 }
 add_action('init','wpse23007_redirect');
 
+// Search only users ID posts not other user -> Very important
+function wpb_search_filter($query)
+{
+	global $current_user;
+	if ($query->is_search && !is_admin())
+		$query->set('author', $current_user->ID);
+	// $query->set('meta_query', array(
+	// 	'key'       => 'file_name',
+	// 	'value'     => $query->query['s']
+	// ));
+	return $query;
+}
+add_filter('pre_get_posts', 'wpb_search_filter');
+
 // Custom pagination
 function pagination($pages = '', $range = 4)
 {
@@ -1051,6 +1065,7 @@ function sanitize_pagination($content) {
 }
 add_action('navigation_markup_template', 'sanitize_pagination');
 
+// Password or user name failed redirect to same page and dont show wp-login page
 add_action( 'wp_login_failed', 'custom_login_failed' );
 function custom_login_failed( $username )
 {
@@ -1062,7 +1077,6 @@ function custom_login_failed( $username )
         exit;
     }
 }
-
 add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
 function custom_authenticate_username_password( $user, $username, $password )
 {
@@ -1088,16 +1102,3 @@ function custom_authenticate_username_password( $user, $username, $password )
 //  }
  
 //  add_action( 'wp_enqueue_scripts', 'custom_contact_script_conditional_loading' );
-
-// function wpb_search_filter($query)
-// {
-// 	global $current_user;
-// 	if ($query->is_search && !is_admin())
-// 		$query->set('author', $current_user->ID);
-// 	$query->set('meta_query', array(
-// 		'key'       => 'file_name',
-// 		'value'     => $query->query['s']
-// 	));
-// 	return $query;
-// }
-// add_filter('pre_get_posts', 'wpb_search_filter');
