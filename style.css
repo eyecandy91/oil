@@ -415,10 +415,6 @@ table th {
     font-size: 1.1rem !important;
 }
 
-.is-size-6 {
-    font-size: 1rem !important;
-}
-
 .has-text-centered {
     text-align: center !important;
 }
@@ -1432,6 +1428,12 @@ a.tag:hover {
     min-height: 3.25rem;
     position: relative;
     z-index: 30;
+}
+
+@media screen and (min-width: 1044px) {
+    .navbar {
+        font-size: .85rem;
+    }
 }
 
 .navbar.is-link {
