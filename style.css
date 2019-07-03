@@ -443,6 +443,10 @@ a.has-text-link:hover, a.has-text-link:focus {
     font-weight: 700 !important;
 }
 
+.is-block {
+    display: block !important;
+}
+
 .is-inline-block {
     display: inline-block !important;
 }
