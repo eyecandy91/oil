@@ -35,6 +35,7 @@ get_header();
         </div>
         </div>
         <?php
+			echo "<div class='columns is-mobile is-multiline is-centered has-text-centered'>";
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -44,13 +45,14 @@ get_header();
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				echo "<div class='columns is-mobile is-multiline is-centered has-text-centered'>";
-				get_template_part( 'template-parts/content', 'search' );
+					echo "<div class='column is-full-mobile is-one-third-tablet is-one-quarter-desktop'>";
+					get_template_part( 'template-parts/content', 'search' );
+					echo "</div>";
+					
+				endwhile;
+				
+				the_posts_navigation();
 				echo "</div>";
-
-			endwhile;
-
-			the_posts_navigation();
 
 		else :
 
