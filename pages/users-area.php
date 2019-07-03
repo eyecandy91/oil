@@ -62,11 +62,13 @@ if (is_user_logged_in()) {
                     'posts_per_page' => -1, //show all PO numbers here in the portal home page
                     'author' => $current_user->ID,
                     'paged' => $paged,
+                    'order' => 'ASC',
                     'tax_query' => array(
                         array(
                             'taxonomy' => $taxonomy, // base off the custom taxonomies that are the PO numbers
                             'field' => 'slug',
                             'terms' => $term->slug,
+                            'order' => 'ASC'
                         ),
                     ),
                 );
