@@ -18,6 +18,7 @@ if (is_user_logged_in()) {
     <?php if (current_user_can('administrator')) {?>
 
     <?php } else {?>
+
     <div class="columns is-mobile is-multiline is-centered has-text-centered">
         <div class="content">
             <h2 class="title has-text-weight-light is-size-4">Welcome back<span class="has-text-weight-bold">
@@ -30,6 +31,21 @@ if (is_user_logged_in()) {
                 echo $user;
             }?></span>, here are your folders</h2>
         </div>
+    </div>
+    <div class="columns is-mobile is-multiline is-centered has-text-centered">
+        <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url( '/' ); ?>">
+            <div>
+                <input value="" name="s" id="s" class="input" type="text" placeholder="Search <?php
+            if ($first && $last) {
+                    echo $first . '&nbsp;' . $last;
+            } else if ($first) {
+                echo $first;
+            } else {
+                echo $user;
+            }?> files">
+                <input id="searchsubmit" value="Search" class="button is-link" type="submit">
+            </div>
+        </form>
     </div>
     <?php
     echo "<div class='columns po-results box is-mobile is-multiline is-centered has-text-centered'>";
