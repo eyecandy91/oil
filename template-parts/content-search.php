@@ -17,7 +17,7 @@ $link = $file_pdf['url'];
 $icon = $file_pdf['icon'];
 ?>
 
-<a href="<?php echo $link ?>" rel="single-po-number" target="_blank" class="column is-full-mobile is-one-third-tablet is-one-quarter-desktop">
+<a href="<?php echo $link ?>" rel="single-po-number" target="_blank">
     <article id="post-<?php the_ID();?>" <?php post_class();?> class="">
         <div class="box is-paddingless image">
             <div class="po-no">
