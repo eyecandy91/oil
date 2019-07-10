@@ -2467,6 +2467,7 @@ textarea {
 .product_block__category-info {
     max-width: 767px;
     margin: 3rem auto;
+    padding: 0 2rem;
 }
 
 .product_block.merchandise {
