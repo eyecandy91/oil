@@ -2440,10 +2440,23 @@ textarea {
     padding: 100px 50px;
 }
 
+@media screen and (max-width: 766px) {
+    .section.about {
+        padding: 1rem;
+    }
+}
+
 .section.about > div {
     width: 45%;
     background: white;
     padding: 1rem;
+}
+
+@media screen and (max-width: 766px) {
+    .section.about > div {
+        width: 90%;
+        margin: auto;
+    }
 }
 
 .section.credit-applicant {
@@ -2483,7 +2496,6 @@ textarea {
 }
 
 .product_block.single__product span {
-    position: absolute;
     top: 210px;
     left: 0.75rem;
     right: 0.75rem;
@@ -2492,6 +2504,7 @@ textarea {
 
 @media screen and (max-width: 766px) {
     .product_block.single__product span {
+        position: absolute;
         top: 150px;
         font-size: .8rem;
         left: 0;
