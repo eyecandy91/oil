@@ -2,6 +2,7 @@
 /**
  * Template Name: Merchandise page
  */
+$sponsor_link       = get_field('sponsor_url'); 
 $sponsor            = get_field('sponsor'); 
 $sponsor_url        = $sponsor['url']; 
 $sponsor_name       = $sponsor['name']; 
@@ -53,7 +54,9 @@ the_content();
 // echo "<pre>";
 // // print_r($sponsor );
 ?>
+<a href="<?php echo $sponsor_link ?>">
 <img class="sponsor" src="<?php echo $sponsor_url ?>" width="<?php echo $sponsor_w ?>" height="<?php echo $sponsor_h ?>" alt="<?php echo $sponsor_name ?>">
+</a>
 <?php
 echo "</section>";
 get_footer();
