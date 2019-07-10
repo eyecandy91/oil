@@ -45,8 +45,8 @@ if (in_category( 'No description' )) {
                             <div class="product_block single-item single__product image">
                                 <div class="picture">
                                     <img src="<?php echo $url ?>" alt="">
+                                <span class="is-uppercase"><?php the_title();?></span>
                                 </div>
-                                <span class="is-uppercase is-size-5"><?php the_title();?></span>
                             </div>
                         </a> 
                     <?php } else {
@@ -55,8 +55,8 @@ if (in_category( 'No description' )) {
                             <div class="product_block single-item single__product image">
                                 <div class="picture">
                                     <img src="<?php echo $url ?>" alt="">
+                                <span class="is-uppercase"><?php the_title();?></span>
                                 </div>
-                                <span class="is-uppercase is-size-5"><?php the_title();?></span>
                             </div>  
                         </a>
                     <?php } 
