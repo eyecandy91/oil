@@ -2500,11 +2500,11 @@ textarea {
     left: 0.75rem;
     right: 0.75rem;
     line-height: 1.2;
+    position: absolute;
 }
 
 @media screen and (max-width: 766px) {
     .product_block.single__product span {
-        position: absolute;
         top: 150px;
         font-size: .8rem;
         left: 0;
