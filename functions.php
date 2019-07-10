@@ -1091,6 +1091,60 @@ function custom_authenticate_username_password( $user, $username, $password )
     }
 }
 
+function my_login_page_remove_back_to_link() { ?>
+    <style type="text/css">
+        body.login div#login p#backtoblog,
+        body.login div#login p#nav {
+          display: none;
+        }
+    </style>
+<?php }
+//This loads the function above on the login page
+add_action( 'login_enqueue_scripts', 'my_login_page_remove_back_to_link' );
+
+function admin_login_redirect( $redirect_to, $request, $user ) {
+	global $user;
+	
+	if( isset( $user->roles ) && is_array( $user->roles ) ) {
+	   if( in_array( "administrator", $user->roles ) ) {
+	   return $redirect_to;
+	   } 
+	   else {
+	   return home_url();
+	   }
+	}
+	else {
+	return $redirect_to;
+	}
+ }
+ add_filter("login_redirect", "admin_login_redirect", 10, 3);
+
+ add_filter( 'lostpassword_redirect', 'my_redirect_home' );
+function my_redirect_home( $lostpassword_redirect ) {
+	return home_url();
+}
+
+function custom_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo content_url();; ?>/uploads/2019/06/oil-baron.png);
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'custom_login_logo' );
+
+// add_action('init','custom_login');
+// function custom_login(){
+//  global $pagenow;
+//  //  URL for the HomePage. You can set this to the URL of any page you wish to redirect to.
+//  $blogHomePage = get_bloginfo('url');
+//  //  Redirect to the Homepage, if if it is login page. Make sure it is not called to logout or for lost password feature
+//  if( 'wp-login.php' == $pagenow && $_GET['action']!="logout" && $_GET['action']!="lostpassword") {
+//      wp_redirect($blogHomePage);
+//      exit();
+//  }
+// }
+
 // function custom_contact_script_conditional_loading(){
 // 	//  Edit page IDs here
 // 	if(! is_page('contact') )
