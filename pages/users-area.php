@@ -137,7 +137,7 @@ if (is_user_logged_in()) {
         'value_remember' => false);
     wp_login_form($args);
     ?>
-    <a class="button is-fullwidth" style="margin-bottom: 1rem" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Lost Password</a>
+    <a class="button is-fullwidth" style="margin-bottom: 1rem" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Forgot Password</a>
     <a class="has-text-centered is-block" href="mailto:<?php echo $head_email; ?>" target="_blank">
     <?php
     echo "Having issues?<br>Email ".$head_email;
