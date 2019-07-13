@@ -8,6 +8,8 @@ $sponsor_url        = $sponsor['url'];
 $sponsor_name       = $sponsor['name']; 
 $sponsor_h          = $sponsor['height']; 
 $sponsor_w          = $sponsor['width']; 
+
+$thanks             = myprefix_get_theme_option('thanks');
 get_header();
 echo "<section class='section'>";
 $posts = get_field('product_cat');
@@ -55,8 +57,38 @@ the_content();
 // // print_r($sponsor );
 ?>
 <a href="<?php echo $sponsor_link ?>">
-<img class="sponsor" src="<?php echo $sponsor_url ?>" width="<?php echo $sponsor_w ?>" height="<?php echo $sponsor_h ?>" alt="<?php echo $sponsor_name ?>">
+    <img class="sponsor" src="<?php echo $sponsor_url ?>" width="<?php echo $sponsor_w ?>"
+        height="<?php echo $sponsor_h ?>" alt="<?php echo $sponsor_name ?>">
 </a>
 <?php
 echo "</section>";
+?>
+<div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content has-text-centered">
+                        <h3>Thank you</h4>
+                        <p><?php echo $thanks ?></p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
+<?php
 get_footer();
+if ($_GET['enquiry'] == 'completed') { ?>
+<script>
+jQuery(document).ready(function($) {
+    $("#modal").addClass("is-active");
+    $(".modal-close").click(function() {
+        $("#modal").removeClass("is-active");
+    });
+});
+</script>
+<?php }
+?>
