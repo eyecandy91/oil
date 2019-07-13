@@ -778,6 +778,12 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 					} else {
 						unset( $options['login_error'] ); // Remove from options if empty
 					}
+					// Input
+					if ( ! empty( $options['thanks'] ) ) {
+						$options['thanks'] = sanitize_text_field( $options['thanks'] );
+					} else {
+						unset( $options['thanks'] ); // Remove from options if empty
+					}
 	
 					// // Select
 					// if ( ! empty( $options['select_example'] ) ) {
@@ -930,6 +936,15 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 					<textarea type="text" name="theme_options[login_error_text]" cols="50"
                         rows="8" /><?php echo esc_attr( $value ); ?></textarea>
                 </td>
+			</tr>
+			
+			<tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Thankyou message when making inquiry into an item', 'oil-baron' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'thanks' ); ?>
+					<textarea type="text" name="theme_options[thanks]" cols="50"
+                        rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+                </td>
             </tr>
 
             <!-- <?php// // Select example ?>
@@ -1077,6 +1092,7 @@ function custom_login_failed( $username )
         exit;
     }
 }
+
 add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
 function custom_authenticate_username_password( $user, $username, $password )
 {
@@ -1091,6 +1107,7 @@ function custom_authenticate_username_password( $user, $username, $password )
     }
 }
 
+// remove crap from login pages
 function my_login_page_remove_back_to_link() { ?>
     <style type="text/css">
         body.login div#login p#backtoblog,
@@ -1117,13 +1134,15 @@ function admin_login_redirect( $redirect_to, $request, $user ) {
 	return $redirect_to;
 	}
  }
- add_filter("login_redirect", "admin_login_redirect", 10, 3);
+add_filter("login_redirect", "admin_login_redirect", 10, 3);
 
- add_filter( 'lostpassword_redirect', 'my_redirect_home' );
+// redirect reset password to home page
+add_filter( 'lostpassword_redirect', 'my_redirect_home' );
 function my_redirect_home( $lostpassword_redirect ) {
 	return home_url();
 }
 
+// add custom logo for login page and reset password
 function custom_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
@@ -1133,6 +1152,24 @@ function custom_login_logo() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'custom_login_logo' );
 
+// allow url queries
+function custom_rewrite_basic() 
+{
+    add_rewrite_rule('merchandise?c=$1', 'top');
+}
+add_action('init', 'custom_rewrite_basic');
+
+// redirect merchandise to merchandise home page and show message
+add_action( 'wp_footer', 'redirect_cf7' );
+function redirect_cf7() {
+?>
+<script type="text/javascript">
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+       location = '<?php echo esc_url( home_url( '/merchandise/?enquiry=completed' ) ) ?>';
+}, false );
+</script>
+<?php
+}
 // add_action('init','custom_login');
 // function custom_login(){
 //  global $pagenow;
