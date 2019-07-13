@@ -4,8 +4,8 @@
  *
  */
 
+$terms = get_the_terms( $post->ID , 'Merchandise_items' );
 get_header();
-
 while (have_posts()) :
 	the_post();
 	get_template_part('template-parts/content', 'merchandise');
@@ -15,6 +15,8 @@ get_footer();
 ?>
 <script>
 	jQuery(document).ready(function($) {
+		// Make the send button disabled, user cannot send until size is added
+		$('input#merchandise-submit').prop('disabled', true);
 		<?php if (!is_user_logged_in()) { ?>
 			// disable the submit button
 			$('input#merchandise-submit').prop('disabled', true);
@@ -33,23 +35,38 @@ get_footer();
 				$('#user-email').val($(this).val());
 				$('input#merchandise-submit').prop('disabled', false);
 			});
-			// Add size to the input
-			$("#size select").on("change", function() {
-				console.log('User wants ' + $(this).val() + ' size');
-				$("#product-size").val($(this).val()); 
-			});
+			<?php foreach ( $terms as $term ) {
+				if ($term->name == "has size" ) { ?>
+					// Add size to the input
+					// remove the disabled submit on change of select
+					$("#size select").on("change", function() {
+						console.log('User wants ' + $(this).val() + ' size');
+						$("#product-size").val($(this).val()); 
+						$('input#merchandise-submit').prop('disabled', false);
+					});
+				<?php } else if ($term->name == "no size" ) { ?>
+					// $('input#merchandise-submit').prop('disabled', false);
+					// Add size to the input
+					$("#product-size").val('No size needed for this product'); 
+				<?php }
+			} ?>
 		<?php } else { ?>
-			// Add size to the input
-			// remove the disabled submit on change of select
-			$("#size select").on("change", function() {
-				console.log('User wants ' + $(this).val() + ' size');
-				$("#product-size").val($(this).val()); 
-				$('input#merchandise-submit').prop('disabled', false);
-			});
+			<?php foreach ( $terms as $term ) {
+				if ($term->name == "has size" ) { ?>
+					// Add size to the input
+					// remove the disabled submit on change of select
+					$("#size select").on("change", function() {
+						console.log('User wants ' + $(this).val() + ' size');
+						$("#product-size").val($(this).val()); 
+						$('input#merchandise-submit').prop('disabled', false);
+					});
+				<?php } else if ($term->name == "no size" ) { ?>
+					$('input#merchandise-submit').prop('disabled', false);
+					// Add size to the input
+					$("#product-size").val('No size needed for this product'); 
+				<?php }
+			} ?>
 		<?php } ?>
-
-		// Make the send button disabled, user cannot send until size is added
-		$('input#merchandise-submit').prop('disabled', true);
 		$('input#merchandise-submit').on('submit', function() {
 			$(this).find('input#merchandise-submit').attr('disabled', true);
 		});
