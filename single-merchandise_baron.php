@@ -93,8 +93,10 @@ get_footer();
 			$input.change();
 			return false;
 		});
-
-
-
 	});
 </script>
+<style>
+.wpcf7-mail-sent-ok {
+	display: none !important
+}
+</style>
