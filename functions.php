@@ -520,7 +520,7 @@ function create_merchandise_types_hierarchical_taxonomy()
 		'parent_item_colon' => __('Parent merchandise items:'),
 		'edit_item' => __('Edit merchandise items'),
 		'update_item' => __('Update mrchandise items'),
-		'add_new_item' => __('Add a new merchandise item'),
+		'add_new_item' => __('Add a new merchandise category'),
 		'new_item_name' => __('New merchandise items Name'),
 		'menu_name' => __('Merchandise item categories'),
 	);
