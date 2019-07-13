@@ -45,9 +45,14 @@ $image_large_w	= $image['sizes']['large-width'];
                 <?php }
             	} ?>
             </div>
+
+            <?php
+            $terms = get_the_terms( $post->ID , 'Merchandise_items' );
+            foreach ( $terms as $term ) {
+            if ($term->name == "has size" ) { ?>
             <div class="field">
             <div class="field">Sizes</div>
-                <?php
+            <?php
 			echo "<div id='size' class='select is-short'>
 			<select>
 			<option selected='true' disabled='disabled'>Select a size</option>
@@ -62,6 +67,10 @@ $image_large_w	= $image['sizes']['large-width'];
 			</div>";
 			?>
             </div>
+            <?php } 
+            }
+            ?>
+            
             <div class="field">
                 <div class="field">Quantity</div>
                 <?php
@@ -96,12 +105,12 @@ $image_large_w	= $image['sizes']['large-width'];
                         <p><?php echo $shipping; ?></p>
                     </div>
                 </div>
-			</div>
-			<div>
-			<div id='price' class='title'>
-				Email us your interest?
-			</div>
-			<?php 
+            </div>
+            <div>
+                <div id='price' class='title'>
+                    Email us your interest?
+                </div>
+                <?php 
 				if (!is_user_logged_in()) { 
 					echo "<div class='field'>";
 					echo "<input id='loggedout-user' class='input' type='text' name='loggedout-name' placeholder='Your name'>";
@@ -111,12 +120,12 @@ $image_large_w	= $image['sizes']['large-width'];
 					echo "</div>";
 				}			
 			?>
-			<div id="merchandise-form">
-				<?php if ( $form ) {
+                <div id="merchandise-form">
+                    <?php if ( $form ) {
 					echo do_shortcode( $form );
 				} ?>
-			</div>
-			</div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
