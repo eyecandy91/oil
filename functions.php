@@ -784,6 +784,24 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 					} else {
 						unset( $options['thanks'] ); // Remove from options if empty
 					}
+					// Input
+					if ( ! empty( $options['email_body'] ) ) {
+						$options['email_header'] = sanitize_text_field( $options['email_header'] );
+					} else {
+						unset( $options['email_header'] ); // Remove from options if empty
+					}
+					// Input
+					if ( ! empty( $options['email_body'] ) ) {
+						$options['email_body'] = sanitize_text_field( $options['email_body'] );
+					} else {
+						unset( $options['email_body'] ); // Remove from options if empty
+					}
+					// Input
+					if ( ! empty( $options['email_link'] ) ) {
+						$options['email_link'] = sanitize_text_field( $options['email_link'] );
+					} else {
+						unset( $options['email_link'] ); // Remove from options if empty
+					}
 	
 					// // Select
 					// if ( ! empty( $options['select_example'] ) ) {
@@ -939,11 +957,43 @@ add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );
 			</tr>
 			
 			<tr valign="top">
+				<th scope="row"><h2><?php esc_html_e( 'Thank you message merchandise', 'oil-baron' ); ?></h2></th>
+			</tr>
+			<tr valign="top">
                 <th scope="row"><?php esc_html_e( 'Thankyou message when making inquiry into an item', 'oil-baron' ); ?></th>
                 <td>
                     <?php $value = self::get_theme_option( 'thanks' ); ?>
 					<textarea type="text" name="theme_options[thanks]" cols="50"
                         rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+                </td>
+            </tr>
+
+			<tr valign="top">
+				<th scope="row"><h2><?php esc_html_e( 'User registration email settings', 'oil-baron' ); ?></h2></th>
+			</tr>
+			<tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Email header ', 'oil-baron' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'email_header' ); ?>
+					<textarea type="text" name="theme_options[email_header]" cols="50"
+                        rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+                </td>
+            </tr>
+
+			<tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Email message', 'oil-baron' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'email_body' ); ?>
+					<textarea type="text" name="theme_options[email_body]" cols="50"
+                        rows="8" /><?php echo esc_attr( $value ); ?></textarea>
+                </td>
+            </tr>
+
+			<tr valign="top">
+                <th scope="row"><?php esc_html_e( 'Email link message', 'oil-baron' ); ?></th>
+                <td>
+                    <?php $value = self::get_theme_option( 'email_link' ); ?>
+					<input type="text" name="theme_options[email_link]" value="<?php echo esc_attr( $value ); ?>">
                 </td>
             </tr>
 
@@ -1127,7 +1177,7 @@ function admin_login_redirect( $redirect_to, $request, $user ) {
 	   return $redirect_to;
 	   } 
 	   else {
-	   return home_url();
+		return home_url('/portal');
 	   }
 	}
 	else {
@@ -1136,11 +1186,11 @@ function admin_login_redirect( $redirect_to, $request, $user ) {
  }
 add_filter("login_redirect", "admin_login_redirect", 10, 3);
 
-// redirect reset password to home page
-add_filter( 'lostpassword_redirect', 'my_redirect_home' );
-function my_redirect_home( $lostpassword_redirect ) {
-	return home_url();
-}
+// // redirect reset password to home page
+// add_filter( 'lostpassword_redirect', 'my_redirect_home' );
+// function my_redirect_home( $lostpassword_redirect ) {
+// 	return home_url('/portal');
+// }
 
 // add custom logo for login page and reset password
 function custom_login_logo() { ?>
@@ -1193,3 +1243,14 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
 //  }
  
 //  add_action( 'wp_enqueue_scripts', 'custom_contact_script_conditional_loading' );
+
+add_action( 'resetpass_form', 'resettext');
+function resettext(){ ?>
+
+<script type="text/javascript">
+   jQuery( document ).ready(function() {                 
+     jQuery('#resetpassform input#wp-submit').val("Set Password");
+   });
+</script>
+<?php
+}
