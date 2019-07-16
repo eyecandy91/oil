@@ -1254,3 +1254,13 @@ function resettext(){ ?>
 </script>
 <?php
 }
+
+function forgotpass_message() {
+	$action = $_REQUEST['action'];
+	if( $action == 'resetpass' ) {
+	$portal = home_url('/portal');
+	$message = '<p class="message">Your password has been set <a href="'.$portal.'">Login</a></p>';
+	return $message;
+	}
+   }
+   add_filter('login_message', 'forgotpass_message');
