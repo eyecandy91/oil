@@ -23,10 +23,6 @@
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="<?php echo get_stylesheet_uri() ?>"></noscript>
-    <link rel="preload" href="<?php echo get_template_directory_uri() ?>/css/aos.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/aos.css"></noscript>
     <link rel="preload" href="<?php echo get_template_directory_uri() ?>/css/font.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
