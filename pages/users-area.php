@@ -16,7 +16,23 @@ if (is_user_logged_in()) {
 
 <section class="section">
     <?php if (current_user_can('administrator')) {?>
-
+        <section class="section">
+    <div class="columns is-mobile is-multiline is-centered has-text-centered">
+        <form action="<?php bloginfo( 'url' ); ?>/admin-user-lookup" method="get">
+            <h4 class="title is-4 has-text-weight-light"><?php _e( '<span class="has-text-weight-bold">Select a user</span>' ); ?></h4>
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    <div class="select is-fullwidth">
+                        <?php wp_dropdown_users(array( 'class' => 'select', 'selected' => 0, 'show_option_none' => __('Select a user you want to view') )); ?>
+                    </div>
+                </div>
+                <div class="control">
+                    <input type="submit" name="submit" class="button is-link" value="SEARCH USER" />
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
     <?php } else {?>
 
     <div class="columns is-mobile is-multiline is-centered has-text-centered">
@@ -37,7 +53,7 @@ if (is_user_logged_in()) {
             <div>
                 <input value="" name="s" id="s" class="input" type="text" placeholder="Search <?php
             if ($first && $last) {
-                    echo $first . '&nbsp;' . $last;
+                echo $first . '&nbsp;' . $last;
             } else if ($first) {
                 echo $first;
             } else {
