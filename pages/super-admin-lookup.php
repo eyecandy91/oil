@@ -11,8 +11,9 @@ if (current_user_can('administrator')) {
     $post           = $_GET['user'];
     $user_id        = $post;
     $user           = get_user_by( 'id', $post ); 
-    $first          = $user->user_firstname;
-    $last           = $user->user_lastname; 
+    // $first          = $user->user_firstname;
+    // $last           = $user->user_lastname; 
+    $name           = $user->display_name;
 	$term 			= get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
     $paged 			= ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
     $args           =array(
@@ -62,7 +63,7 @@ if (current_user_can('administrator')) {
             <div class="column is-full is-paddingless">
                 <form action="<?php bloginfo( 'url' ); ?>/admin-user-lookup" method="get">
                     <h4 class="title is-4 has-text-weight-light">
-                        <?php _e( 'Current user : <span class="has-text-weight-bold">'.$first.' '.$last.'</span>'); ?>
+                        <?php _e( 'Current user : <span class="has-text-weight-bold">'.$name.'</span>'); ?>
                     </h4>
                     <h4 class="title is-4 has-text-weight-light">
                         <?php _e( 'Viewing : <span class="has-text-weight-bold">PO numbers</span>' ); ?></h4>
