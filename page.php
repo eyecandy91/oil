@@ -14,7 +14,6 @@
 
 get_header();
 ?>
-dddff
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
@@ -34,7 +33,6 @@ dddff
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-fdfdfdf
 <?php
 get_sidebar();
 get_footer();
