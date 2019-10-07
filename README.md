@@ -16,6 +16,15 @@ A simple theme for Oil baron. Which is based on Underscores https://underscores.
 
 ## Changelog
 
+= 0.42 =
+* Changed user_first & user_last namesto show as the users displayed name as a backup to the admin not entering a real name when adding a user
+
+= 0.41 =
+* Added scripts for allowing admin to search a new user within a current search  
+
+= 0.4 =
+* Added admin search users from dropdown on portal page, Admin can now search every user, its associated PO Numbers & certificates 
+
 = 0.3 =
 * Updated functions for showing users error message if bad creds to login to portal, markup and style changes for portal logins
 
