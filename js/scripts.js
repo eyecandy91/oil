@@ -1,1 +1,1 @@
-!function(a){a(document).ready(function(){a(".navbar-burger").click(function(){a(".navbar-burger").toggleClass("is-active"),a(".navbar-menu").toggleClass("is-active")})})}(jQuery);
+!function(n){n(document).ready(function(){n(".navbar-burger").click(function(){n(".navbar-burger").toggleClass("is-active"),n(".navbar-menu").toggleClass("is-active")})}),n(document).ready(function(){n("#hideshow").click(function(){n("#content").toggleClass("new-user")}),n("#hideshow").toggle(function(){n(this).val("Close")},function(){n(this).val("New user")})})}(jQuery);
