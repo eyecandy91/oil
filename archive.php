@@ -32,8 +32,9 @@ if (is_user_logged_in()) {
         $po             = $_GET['po'];
         $user_id        = $post;
         $user           = get_user_by( 'id', $post ); 
-        $first          = $user->user_firstname;
-        $last           = $user->user_lastname; 
+        // $first          = $user->user_firstname;
+        // $last           = $user->user_lastname; 
+        $name           = $user->display_name;
         $loop = new WP_Query(array(
             // 'author' 			=> $current_user->ID,
             'post_type' 		=> 'certificates',
@@ -75,7 +76,7 @@ if (is_user_logged_in()) {
             <div class="column is-full is-paddingless">
                 <form action="<?php bloginfo( 'url' ); ?>/admin-user-lookup" method="get">
                     <h4 class="title is-4 has-text-weight-light">
-                        <?php _e( 'Current user : <span class="has-text-weight-bold">'.$first.' '.$last.'</span>' ); ?>
+                        <?php _e( 'Current user : <span class="has-text-weight-bold">'.$name.'</span>' ); ?>
                     </h4>
                     <h4 class="title is-4 has-text-weight-light">
                         <?php _e( 'PO Number : <span class="has-text-weight-bold">'.$po.'</span>' ); ?></h4>
